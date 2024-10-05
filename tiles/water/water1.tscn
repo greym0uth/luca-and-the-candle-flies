@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://l17gbtnuo2tk"]
+
+[ext_resource type="Texture2D" uid="uid://c6fggra2whkuo" path="res://tiles/water/water1.png" id="1_f3wgk"]
+[ext_resource type="PackedScene" uid="uid://en83mqyuh6g" path="res://tiles/tile_collision_polygon.tscn" id="2_fgc3p"]
+
+[node name="Water" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_f3wgk")
+offset = Vector2(0, 16)
+
+[node name="TileCollisionPolygon" parent="." instance=ExtResource("2_fgc3p")]

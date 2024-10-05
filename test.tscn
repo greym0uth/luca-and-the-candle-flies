@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=4 uid="uid://c0udeqg58h3pa"]
+
+[ext_resource type="TileSet" uid="uid://cql4xabtpfi8f" path="res://tiles/base.tiles.tres" id="1_v88xe"]
+[ext_resource type="PackedScene" uid="uid://csyuydyv7hs4n" path="res://toggle_layer.tscn" id="2_0yp14"]
+[ext_resource type="PackedScene" uid="uid://cbj7p2im6dayv" path="res://rock.tscn" id="2_7qhlb"]
+[ext_resource type="PackedScene" uid="uid://co00kfl00cvcs" path="res://keeper.tscn" id="3_k4bd3"]
+[ext_resource type="PackedScene" uid="uid://m5ceitnkbjw4" path="res://firefly.tscn" id="4_m0ypc"]
+[ext_resource type="Script" path="res://fireflies.gd" id="4_r04j2"]
+[ext_resource type="PackedScene" uid="uid://8gohnbqmbf2i" path="res://objects/conduit.tscn" id="7_o5yom"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Map" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Base" type="TileMapLayer" parent="Map"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD9/wMAAwAAAAAAAQD+/wMAAwAAAAAAAQD//wMAAwAAAAAAAQAAAAMAAwAAAAAAAQABAAMAAwAAAAAAAQACAAMAAwAAAAAAAQADAAMAAwAAAAAAAQADAAQAAwAAAAAAAQADAAUAAwAAAAAAAQACAAUAAwAAAAAAAQABAAUAAwAAAAAAAQABAAQAAwAAAAAAAQAAAAQAAwAAAAAAAQD//wQAAwAAAAAAAQD+/wQAAwAAAAAAAQD+/wUAAwAAAAAAAQD//wUAAwAAAAAAAQAAAAUAAwAAAAAAAQACAAQAAwAAAAAAAQAEAAQAAwAAAAAAAQD+/wEAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQABAAEAAwAAAAAAAQACAAEAAwAAAAAAAQD//wAAAwAAAAAAAQAAAAAAAwAAAAAAAQABAAAAAwAAAAAAAQACAAAAAwAAAAAAAQD+/wAAAwAAAAAAAQD/////AwAAAAAAAQAAAP//AwAAAAAAAQABAP//AwAAAAAAAQD///7/AwAAAAAAAQD///3/AwAAAAAAAQD///z/AwAAAAAAAQAAAPz/AwAAAAAAAQAAAP3/AwAAAAAAAQAAAP7/AwAAAAAAAQD+/wIAAgAAAAAAAQD//wIAAgAAAAAAAQABAAIAAgAAAAAAAQACAAIAAgAAAAAAAQA=")
+tile_set = ExtResource("1_v88xe")
+rendering_quadrant_size = 128
+collision_enabled = false
+
+[node name="ToggleLayer" parent="Map" instance=ExtResource("2_0yp14")]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAQA=")
+
+[node name="Rock" parent="." instance=ExtResource("2_7qhlb")]
+position = Vector2(-385, 339)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-41, 136)
+zoom = Vector2(0.75, 0.75)
+
+[node name="Keeper" parent="." instance=ExtResource("3_k4bd3")]
+position = Vector2(-139, 534)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.135226, 0.189991, 0.314453, 1)
+
+[node name="Fireflies" type="Node2D" parent="."]
+script = ExtResource("4_r04j2")
+
+[node name="Firefly" parent="Fireflies" instance=ExtResource("4_m0ypc")]
+position = Vector2(29, 520)
+
+[node name="Conduit" parent="." instance=ExtResource("7_o5yom")]
+position = Vector2(-379, 182)
+
+[connection signal="on_powered" from="Conduit" to="Map/ToggleLayer" method="enable"]
+[connection signal="on_unpowered" from="Conduit" to="Map/ToggleLayer" method="disable"]

@@ -1,0 +1,14 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cdrs33gve1nqx"]
+
+[ext_resource type="PackedScene" uid="uid://bhxw5j0abt5uh" path="res://tiles/water/activated_bridge.tscn" id="1_5q4h8"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7g8dr"]
+resource_name = "Water"
+scenes/1/scene = ExtResource("1_5q4h8")
+scenes/1/display_placeholder = ExtResource("1_5q4h8")
+
+[resource]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(256, 128)
+sources/0 = SubResource("TileSetScenesCollectionSource_7g8dr")

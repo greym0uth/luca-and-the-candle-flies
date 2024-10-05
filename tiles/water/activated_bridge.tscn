@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhxw5j0abt5uh"]
+
+[ext_resource type="Script" path="res://tiles/water/activated_bridge.gd" id="1_14vqx"]
+[ext_resource type="Texture2D" uid="uid://c6fggra2whkuo" path="res://tiles/water/water1.png" id="2_30edh"]
+[ext_resource type="Texture2D" uid="uid://dq7i8y7nbwnrh" path="res://tiles/grass/Grass5.png" id="3_kfgdt"]
+[ext_resource type="PackedScene" uid="uid://en83mqyuh6g" path="res://tiles/tile_collision_polygon.tscn" id="3_tpn5c"]
+
+[node name="ActivatedBridge" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_14vqx")
+
+[node name="DisabledSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_30edh")
+offset = Vector2(0, 16)
+
+[node name="EnabledSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_kfgdt")
+offset = Vector2(0, 16)
+
+[node name="TileCollisionPolygon" parent="." instance=ExtResource("3_tpn5c")]

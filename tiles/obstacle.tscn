@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj1ohtookqf5k"]
+
+[ext_resource type="PackedScene" uid="uid://brm35npuy3r4u" path="res://tiles/tile.tscn" id="1_gcgsx"]
+
+[node name="Obstacle" instance=ExtResource("1_gcgsx")]
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sprite" parent="." index="0"]
+visible = false

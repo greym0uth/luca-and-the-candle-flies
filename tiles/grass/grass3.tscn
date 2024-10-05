@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rebq7sg4rege"]
+
+[ext_resource type="Texture2D" uid="uid://bv3ah4ikf5c5p" path="res://tiles/grass/Grass3.png" id="1_bptww"]
+[ext_resource type="PackedScene" uid="uid://en83mqyuh6g" path="res://tiles/tile_collision_polygon.tscn" id="2_5430c"]
+
+[node name="Grass" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_bptww")
+
+[node name="TileCollisionPolygon" parent="." instance=ExtResource("2_5430c")]
