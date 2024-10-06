@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var speed = 400
 
+@onready var seeded_offset = randf_range(-100, 100)
+
 @export var rotation_speed = 1
 @export var collect_stay_radius = 128
 
@@ -25,7 +27,7 @@ func _physics_process(delta):
         target_angle = global_position.angle_to_point(mouse_position)
 
     current_time += delta
-    var offset_angle = sin(current_time * 0.25) * (PI / 8)
+    var offset_angle = sin(seeded_offset + current_time * 1) * (PI / 4)
 
     current_rotation = lerp_angle(current_rotation, target_angle + offset_angle, rotation_speed * PI * delta)
 

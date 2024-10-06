@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=4 uid="uid://15ag0i6vwh0q"]
+
+[ext_resource type="PackedScene" uid="uid://cpfakcolyervk" path="res://levels/level.tscn" id="1_ngui6"]
+[ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="2_7wvhh"]
+[ext_resource type="PackedScene" uid="uid://8gohnbqmbf2i" path="res://objects/conduit.tscn" id="3_rn5se"]
+[ext_resource type="PackedScene" uid="uid://bmybj3bp0v1dr" path="res://triggers/go_to_level.tscn" id="4_0juxg"]
+
+[node name="LevelOne" instance=ExtResource("1_ngui6")]
+
+[node name="Camera2D" parent="." index="1"]
+target = NodePath("../Keeper")
+
+[node name="Base" parent="Map" index="0"]
+tile_map_data = PackedByteArray("AAD//wAAAwAAAAAAAQD+/wAAAwAAAAAAAQD+/wEAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////AwAAAAAAAQD+////AwAAAAAAAQD9////AwAAAAAAAQD9/wAAAwAAAAAAAQD9/wEAAwAAAAAAAQD8/wAAAwAAAAAAAQD8////AwAAAAAAAQD7////AwAAAAAAAQD7//7/AwAAAAAAAQD8//7/AwAAAAAAAQD9//7/AwAAAAAAAQD8//3/AwAAAAAAAQD7//3/AwAAAAAAAQD6//3/AwAAAAAAAQD6//7/AwAAAAAAAQD5//7/AwAAAAAAAQD5//3/AwAAAAAAAQD6//z/AwAAAAAAAQD7//z/AwAAAAAAAQD7//v/AwAAAAAAAQD+//7/AwAAAAAAAQD9//3/AwAAAAAAAQD///7/AwAAAAAAAQD+//3/AwAAAAAAAQD8//z/AwAAAAAAAQD9//z/AwAAAAAAAQD3//3/AwAAAAAAAQD3//z/AwAAAAAAAQD3//v/AwAAAAAAAQD3//r/AwAAAAAAAQD4//r/AwAAAAAAAQD5//r/AwAAAAAAAQD5//n/AwAAAAAAAQD6//n/AwAAAAAAAQD7//n/AwAAAAAAAQD4//n/AwAAAAAAAQD3//n/AwAAAAAAAQD2//r/AwAAAAAAAQD2//n/AwAAAAAAAQD2//j/AwAAAAAAAQD3//j/AwAAAAAAAQD4//j/AwAAAAAAAQD2//v/AwAAAAAAAQD5//j/AwAAAAAAAQD1//n/AwAAAAAAAQD1//j/AwAAAAAAAQD1//f/AwAAAAAAAQD2//f/AwAAAAAAAQD3//f/AwAAAAAAAQD8//v/AwAAAAAAAQD4//v/AwAAAAAAAQD4//3/AgAAAAAAAQD4//z/AgAAAAAAAQD6//r/AgAAAAAAAQD7//r/AgAAAAAAAQD1//b/AwAAAAAAAQD2//b/AwAAAAAAAQD3//b/AwAAAAAAAQD1//X/AwAAAAAAAQD2//X/AwAAAAAAAQD0//X/AwAAAAAAAQA=")
+
+[node name="ToggleLayer" parent="Map" index="1"]
+tile_map_data = PackedByteArray("AAD5//z/AAAAAAAAAQD5//v/AAAAAAAAAQD6//v/AAAAAAAAAQA=")
+
+[node name="Lamp" parent="Objects" index="0" instance=ExtResource("2_7wvhh")]
+position = Vector2(127, -62)
+start_powered = true
+
+[node name="Conduit" parent="Objects" index="1" instance=ExtResource("3_rn5se")]
+position = Vector2(-253, -528)
+
+[node name="Lamp2" parent="Objects" index="2" instance=ExtResource("2_7wvhh")]
+position = Vector2(3, -1023)
+
+[node name="GoToLevel" parent="Triggers" index="0" instance=ExtResource("4_0juxg")]
+position = Vector2(5, -1414)
+
+[connection signal="on_powered" from="Objects/Conduit" to="Map/ToggleLayer" method="enable"]
+[connection signal="on_unpowered" from="Objects/Conduit" to="Map/ToggleLayer" method="disable"]
+[connection signal="on_powered" from="Objects/Lamp2" to="." method="on_complete"]

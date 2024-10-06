@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://covog2qyrl0i1"]
+
+[ext_resource type="TileSet" uid="uid://cql4xabtpfi8f" path="res://tiles/base.tiles.tres" id="1_sjo7y"]
+
+[node name="Base" type="TileMapLayer"]
+y_sort_enabled = true
+tile_set = ExtResource("1_sjo7y")
+rendering_quadrant_size = 128
+collision_enabled = false

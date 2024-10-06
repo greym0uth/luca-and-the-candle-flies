@@ -1,13 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://8gohnbqmbf2i"]
 
-[ext_resource type="Script" path="res://objects/conduit.gd" id="1_optic"]
+[ext_resource type="Script" path="res://objects/powerable.gd" id="1_optic"]
 [ext_resource type="Texture2D" uid="uid://do16n70gaalu3" path="res://rock.png" id="2_0xiht"]
+[ext_resource type="PackedScene" uid="uid://b2ewofteagvyu" path="res://objects/interaction.tscn" id="3_qyoms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_035n1"]
 size = Vector2(36, 67)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_424xj"]
-radius = 256.0
 
 [node name="Conduit" type="StaticBody2D"]
 collision_layer = 16
@@ -25,12 +23,8 @@ texture = ExtResource("2_0xiht")
 position = Vector2(0, -15.5)
 shape = SubResource("RectangleShape2D_035n1")
 
-[node name="Interaction" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
+[node name="Interaction" parent="." instance=ExtResource("3_qyoms")]
+collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
-shape = SubResource("CircleShape2D_424xj")
-
-[connection signal="body_entered" from="Interaction" to="." method="_on_interaction_body_entered"]
-[connection signal="body_exited" from="Interaction" to="." method="_on_interaction_body_exited"]
+[connection signal="on_activated" from="Interaction" to="." method="power"]
+[connection signal="on_deactivated" from="Interaction" to="." method="unpower"]

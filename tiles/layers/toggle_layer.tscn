@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://csyuydyv7hs4n"]
 
 [ext_resource type="TileSet" uid="uid://cdrs33gve1nqx" path="res://tiles/toggle.tiles.tres" id="1_kwm6v"]
-[ext_resource type="Script" path="res://toggle_layer.gd" id="2_mgkfb"]
+[ext_resource type="Script" path="res://tiles/layers/toggle_layer.gd" id="2_mgkfb"]
 
 [node name="ToggleLayer" type="TileMapLayer"]
 tile_set = ExtResource("1_kwm6v")

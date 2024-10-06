@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://0xlivsywdqkr"]
+
+[ext_resource type="Script" path="res://objects/powerable.gd" id="1_c2aov"]
+[ext_resource type="Texture2D" uid="uid://do16n70gaalu3" path="res://rock.png" id="2_fkpgb"]
+[ext_resource type="Texture2D" uid="uid://cc6m5q5ktfk8k" path="res://light.png" id="3_ipini"]
+[ext_resource type="PackedScene" uid="uid://b2ewofteagvyu" path="res://objects/interaction.tscn" id="4_yn10l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wj4s3"]
+radius = 20.0
+height = 84.0
+
+[sub_resource type="Animation" id="Animation_et1g0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_nqsfo"]
+resource_name = "power"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_vw0s8"]
+resource_name = "unpower"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fvxhj"]
+_data = {
+"RESET": SubResource("Animation_et1g0"),
+"power": SubResource("Animation_nqsfo"),
+"unpower": SubResource("Animation_vw0s8")
+}
+
+[node name="Lamp" type="StaticBody2D"]
+collision_layer = 16
+script = ExtResource("1_c2aov")
+is_permanent = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fkpgb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+texture = ExtResource("2_fkpgb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-1, -56)
+texture = ExtResource("2_fkpgb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(-24, -44)
+texture = ExtResource("2_fkpgb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(21, -46)
+texture = ExtResource("2_fkpgb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -30)
+shape = SubResource("CapsuleShape2D_wj4s3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, -49)
+enabled = false
+texture = ExtResource("3_ipini")
+
+[node name="Interaction" parent="." instance=ExtResource("4_yn10l")]
+collision_mask = 6
+require_both = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fvxhj")
+}
+
+[connection signal="on_activated" from="Interaction" to="." method="power"]
+[connection signal="on_deactivated" from="Interaction" to="." method="unpower"]

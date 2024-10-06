@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="luca-and-the-candle-flies"
-run/main_scene="res://test.tscn"
+run/main_scene="res://levels/test.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[global_group]
+
+keeper=""
+firefly=""
 
 [input]
 

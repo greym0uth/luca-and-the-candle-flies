@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://c0udeqg58h3pa"]
+[gd_scene load_steps=9 format=4 uid="uid://c0udeqg58h3pa"]
 
 [ext_resource type="TileSet" uid="uid://cql4xabtpfi8f" path="res://tiles/base.tiles.tres" id="1_v88xe"]
-[ext_resource type="PackedScene" uid="uid://csyuydyv7hs4n" path="res://toggle_layer.tscn" id="2_0yp14"]
+[ext_resource type="PackedScene" uid="uid://csyuydyv7hs4n" path="res://tiles/layers/toggle_layer.tscn" id="2_0yp14"]
 [ext_resource type="PackedScene" uid="uid://cbj7p2im6dayv" path="res://rock.tscn" id="2_7qhlb"]
 [ext_resource type="PackedScene" uid="uid://co00kfl00cvcs" path="res://keeper.tscn" id="3_k4bd3"]
 [ext_resource type="PackedScene" uid="uid://m5ceitnkbjw4" path="res://firefly.tscn" id="4_m0ypc"]
 [ext_resource type="Script" path="res://fireflies.gd" id="4_r04j2"]
 [ext_resource type="PackedScene" uid="uid://8gohnbqmbf2i" path="res://objects/conduit.tscn" id="7_o5yom"]
+[ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="8_q23nv"]
 
 [node name="Test" type="Node2D"]
 
@@ -35,7 +36,6 @@ zoom = Vector2(0.75, 0.75)
 position = Vector2(-139, 534)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.135226, 0.189991, 0.314453, 1)
 
 [node name="Fireflies" type="Node2D" parent="."]
@@ -46,6 +46,13 @@ position = Vector2(29, 520)
 
 [node name="Conduit" parent="." instance=ExtResource("7_o5yom")]
 position = Vector2(-379, 182)
+
+[node name="Lamp" parent="." instance=ExtResource("8_q23nv")]
+position = Vector2(148, 571)
+start_powered = true
+
+[node name="Lamp2" parent="." instance=ExtResource("8_q23nv")]
+position = Vector2(510, -123)
 
 [connection signal="on_powered" from="Conduit" to="Map/ToggleLayer" method="enable"]
 [connection signal="on_unpowered" from="Conduit" to="Map/ToggleLayer" method="disable"]
