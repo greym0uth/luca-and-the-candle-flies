@@ -1,29 +1,36 @@
-[gd_scene load_steps=7 format=4 uid="uid://bjf35cav1u407"]
+[gd_scene load_steps=11 format=4 uid="uid://bjf35cav1u407"]
 
 [ext_resource type="PackedScene" uid="uid://cpfakcolyervk" path="res://levels/level.tscn" id="1_m8rkv"]
 [ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="2_63xrd"]
 [ext_resource type="PackedScene" uid="uid://dmjo0ha3vaboe" path="res://tendril.tscn" id="3_3x2w4"]
+[ext_resource type="Script" path="res://objects/death_helper.gd" id="3_cf1xc"]
 [ext_resource type="PackedScene" uid="uid://bmybj3bp0v1dr" path="res://triggers/go_to_level.tscn" id="3_karnv"]
 [ext_resource type="PackedScene" uid="uid://15ag0i6vwh0q" path="res://levels/level_one.tscn" id="4_kavmp"]
 [ext_resource type="PackedScene" uid="uid://cxv2h5xqfw4qd" path="res://triggers/lost_firefly.tscn" id="6_wwto0"]
+[ext_resource type="PackedScene" uid="uid://47am5i3du6t3" path="res://triggers/trigger.tscn" id="7_bcwa1"]
+[ext_resource type="PackedScene" uid="uid://dcmaibssowcvg" path="res://ui/dialogue.tscn" id="7_k5thd"]
+[ext_resource type="PackedScene" uid="uid://cy5mjilkmrkqk" path="res://ui/instruction.tscn" id="9_2tllg"]
 
 [node name="LevelZero" instance=ExtResource("1_m8rkv")]
 firefly_count = 0
 
 [node name="Base" parent="Map" index="0"]
-tile_map_data = PackedByteArray("AAD//wAAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQAAAAIAAwAAAAAAAQABAAIAAwAAAAAAAQABAAEAAwAAAAAAAQABAAAAAwAAAAAAAQAAAAAAAwAAAAAAAQD//wIAAwAAAAAAAQD+/wEAAwAAAAAAAQD+/wAAAwAAAAAAAQD+////AwAAAAAAAQD/////AwAAAAAAAQAAAP//AwAAAAAAAQD9/wAAAwAAAAAAAQD9////AwAAAAAAAQD9//7/AwAAAAAAAQD+//7/AwAAAAAAAQD+//3/AwAAAAAAAQD///7/AwAAAAAAAQD8////AwAAAAAAAQD8//7/AwAAAAAAAQD8//3/AwAAAAAAAQD9//3/AwAAAAAAAQD7//7/AwAAAAAAAQD7//3/AwAAAAAAAQD7//z/AwAAAAAAAQD6//3/AwAAAAAAAQD6//z/AwAAAAAAAQD6//v/AwAAAAAAAQD7//v/AwAAAAAAAQD5//v/AwAAAAAAAQD5//r/AwAAAAAAAQD4//r/AwAAAAAAAQD4//n/AwAAAAAAAQD+/wIAAwAAAAAAAQD9/wEAAwAAAAAAAQD8/wAAAwAAAAAAAQD3//j/AwAAAAAAAQD4//j/AwAAAAAAAQD3//f/AwAAAAAAAQD4//f/AwAAAAAAAQD3//b/AwAAAAAAAQD2//b/AwAAAAAAAQD3//X/AwAAAAAAAQD2//X/AwAAAAAAAQD1//X/AwAAAAAAAQD0//X/AwAAAAAAAQD0//T/AwAAAAAAAQD1//T/AwAAAAAAAQDz//X/AwAAAAAAAQDz//T/AwAAAAAAAQDz//P/AwAAAAAAAQDy//X/AwAAAAAAAQDy//T/AwAAAAAAAQDy//P/AwAAAAAAAQDx//T/AwAAAAAAAQDx//P/AwAAAAAAAQDx//L/AwAAAAAAAQDy//L/AwAAAAAAAQDx//H/AwAAAAAAAQDw//P/AwAAAAAAAQDw//L/AwAAAAAAAQDw//H/AwAAAAAAAQDy//H/AwAAAAAAAQD6//r/AwAAAAAAAQD5//n/AwAAAAAAAQD8//z/AwAAAAAAAQD5//j/AwAAAAAAAQD4//b/AwAAAAAAAQD2//T/AwAAAAAAAQD4//X/AwAAAAAAAQD5//f/AwAAAAAAAQDw/+//AwAAAAAAAQDx/+//AwAAAAAAAQDx//D/AwAAAAAAAQDw//D/AwAAAAAAAQDy//D/AwAAAAAAAQDy/+//AwAAAAAAAQDw/+7/AwAAAAAAAQDx/+7/AwAAAAAAAQDy/+7/AwAAAAAAAQDx/+3/AwAAAAAAAQDw/+3/AwAAAAAAAQDy/+3/AwAAAAAAAQDv/+//AwAAAAAAAQDv/+7/AwAAAAAAAQDv//D/AwAAAAAAAQDw/+z/AwAAAAAAAQDx/+z/AwAAAAAAAQDy/+z/AwAAAAAAAQDx/+v/AwAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD//wAAAwAAAAAAAwD//wEABAAAAAAAAwAAAAEAAwAAAAAABQAAAAIAAwAAAAAAAwABAAIAAwAAAAAAAgABAAEAAwAAAAAAAgABAAAAAwAAAAAAAQAAAAAAAwAAAAAAAQD//wIABAAAAAAAAQD+/wEABAAAAAAAAgD+/wAAAwAAAAAAAQD+////AwAAAAAAAQD/////AwAAAAAABQAAAP//AwAAAAAAAQD9/wAABAAAAAAAAwD9////AwAAAAAABQD9//7/AwAAAAAABQD+//7/AwAAAAAAAQD+//3/AwAAAAAAAQD///7/AwAAAAAAAQD8////AwAAAAAAAQD8//7/AwAAAAAAAgD8//3/AwAAAAAAAgD9//3/AwAAAAAAAQD7//7/AwAAAAAAAQD7//3/AwAAAAAAAwD7//z/AwAAAAAAAgD6//3/AwAAAAAAAQD6//z/AwAAAAAAAQD6//v/AwAAAAAAAgD7//v/AwAAAAAABQD5//v/BAAAAAAAAgD5//r/BAAAAAAAAgD4//r/BAAAAAAAAgD4//n/BAAAAAAAAwD+/wIABAAAAAAAAgD9/wEABAAAAAAAAQD8/wAAAwAAAAAABQD3//j/BAAAAAAAAQD4//j/BAAAAAAAAQD3//f/AwAAAAAAAwD4//f/AwAAAAAAAwD3//b/AwAAAAAABQD2//b/AwAAAAAAAwD3//X/BAAAAAAAAQD2//X/BAAAAAAAAwD1//X/AwAAAAAAAgD0//X/AwAAAAAAAwD0//T/AwAAAAAAAwD1//T/AwAAAAAABADz//X/AwAAAAAAAwDz//T/AwAAAAAABQDz//P/AwAAAAAAAQDy//X/AwAAAAAABADy//T/BAAAAAAAAwDy//P/AwAAAAAABQDx//T/BAAAAAAAAwDx//P/BAAAAAAAAwDx//L/AwAAAAAAAQDy//L/AwAAAAAAAQDx//H/AwAAAAAAAwDw//P/AwAAAAAABADw//L/AwAAAAAABADw//H/AwAAAAAAAQDy//H/AwAAAAAAAwD6//r/BAAAAAAAAgD5//n/BAAAAAAAAwD8//z/AwAAAAAAAQD5//j/AwAAAAAAAQD4//b/AwAAAAAABQD2//T/BAAAAAAAAwD4//X/AwAAAAAAAQD5//f/AwAAAAAAAQDw/+//AwAAAAAABADx/+//BAAAAAAAAwDx//D/AwAAAAAABQDw//D/AwAAAAAAAQDy//D/BAAAAAAAAwDy/+//BAAAAAAAAgDw/+7/AwAAAAAAAgDx/+7/AwAAAAAAAQDy/+7/AwAAAAAAAwDx/+3/AwAAAAAAAwDw/+3/AwAAAAAAAQDy/+3/AwAAAAAABADv/+//AwAAAAAAAQDv/+7/AwAAAAAAAwDv//D/AwAAAAAAAQDw/+z/AwAAAAAABADx/+z/AwAAAAAABADy/+z/BAAAAAAAAgDx/+v/BAAAAAAAAwDu//D/AwAAAAAABQDu/+//AwAAAAAAAwDu/+7/AwAAAAAABADv//H/AwAAAAAAAgACAAMAAQAAAAAAAQABAAMAAQAAAAAAAQAAAAMAAQAAAAAAAQD//wMAAQAAAAAAAQD+/wMAAQAAAAAAAQD9/wMAAQAAAAAAAQD9/wIAAQAAAAAAAQD8/wIAAQAAAAAAAQD8/wEAAQAAAAAAAQD7/wEAAQAAAAAAAQD7/wAAAQAAAAAAAQD7////AQAAAAAAAQD6////AQAAAAAAAQD6//7/AQAAAAAAAQD5//7/AQAAAAAAAQD5//3/AQAAAAAAAQD5//z/AQAAAAAAAQD4//z/AQAAAAAAAQD4//v/AQAAAAAAAQD3//v/AQAAAAAAAQD3//r/AgAAAAAAAwD3//n/AgAAAAAAAQD2//n/AgAAAAAAAwD0//b/AgAAAAAAAgDz//b/AgAAAAAAAQDy//b/AgAAAAAAAgDx//b/AQAAAAAAAQDx//X/AQAAAAAAAQDw//X/AQAAAAAAAQDw//T/AQAAAAAAAQDv//T/AQAAAAAAAQDv//P/AQAAAAAAAQDv//L/AQAAAAAAAQDu//L/AQAAAAAAAQDu//H/AQAAAAAAAQDt//H/AQAAAAAAAQDt//D/AQAAAAAAAQDt/+//AQAAAAAAAQDt/+7/AQAAAAAAAQDt/+3/AgAAAAAAAwDu/+3/AgAAAAAAAQDv/+3/AgAAAAAAAwDv/+z/AgAAAAAAAgDv/+v/AgAAAAAAAgDw/+v/AQAAAAAAAQDw/+r/AQAAAAAAAQDx/+r/AQAAAAAAAQDy/+r/AQAAAAAAAQDy/+v/AQAAAAAAAQDz/+v/AQAAAAAAAQDz/+z/AQAAAAAAAQDz/+3/AQAAAAAAAQDz/+7/AQAAAAAAAQDz/+//AQAAAAAAAQDz//D/AgAAAAAAAgDz//H/AgAAAAAAAQDz//L/AgAAAAAAAwD0//L/AgAAAAAAAQD0//P/AgAAAAAAAQD1//P/AgAAAAAAAwD2//P/AgAAAAAAAQD3//P/AQAAAAAAAQD3//T/AgAAAAAAAgD4//T/AQAAAAAAAQD5//T/AQAAAAAAAQD5//X/AQAAAAAAAQD5//b/AQAAAAAAAQD6//b/AQAAAAAAAQD6//f/AQAAAAAAAQD6//j/AQAAAAAAAQD6//n/AQAAAAAAAQD7//n/AQAAAAAAAQD7//r/AQAAAAAAAQD8//r/AQAAAAAAAQD8//v/AQAAAAAAAQD9//v/AQAAAAAAAQD9//z/AQAAAAAAAQD+//z/AQAAAAAAAQD///z/AQAAAAAAAQD///3/AQAAAAAAAQAAAP3/AQAAAAAAAQAAAP7/AQAAAAAAAQABAP7/AQAAAAAAAQABAP//AQAAAAAAAQACAP//AQAAAAAAAQACAAAAAQAAAAAAAQACAAEAAQAAAAAAAQACAAIAAQAAAAAAAQD2//f/AgAAAAAAAQD2//j/AgAAAAAAAQD1//f/AgAAAAAAAgD1//b/AgAAAAAAAQD1//j/AgAAAAAAAgD0//f/AgAAAAAAAgD1//L/AgAAAAAAAgDu/+z/AgAAAAAAAwA=")
 
 [node name="Tendril" parent="Sorted/Shadows" index="0" instance=ExtResource("3_3x2w4")]
-position = Vector2(756, -2188)
+position = Vector2(513, -2189)
 
-[node name="Lamp2" parent="Sorted/Objects" index="0" instance=ExtResource("2_63xrd")]
-position = Vector2(134, -2116)
+[node name="DeathHelper" type="Node2D" parent="Sorted/Objects" index="0"]
+script = ExtResource("3_cf1xc")
 
-[node name="Lamp" parent="Sorted/Objects" index="1" instance=ExtResource("2_63xrd")]
+[node name="Lamp2" parent="Sorted/Objects" index="1" instance=ExtResource("2_63xrd")]
+position = Vector2(1, -2196)
+
+[node name="Lamp" parent="Sorted/Objects" index="2" instance=ExtResource("2_63xrd")]
 position = Vector2(142, 61)
 start_powered = true
 
-[node name="Lamp3" parent="Sorted/Objects" index="2" instance=ExtResource("2_63xrd")]
+[node name="Lamp3" parent="Sorted/Objects" index="3" instance=ExtResource("2_63xrd")]
 position = Vector2(-272, -538)
 start_powered = true
 
@@ -32,9 +39,31 @@ position = Vector2(908, -2247)
 level = ExtResource("4_kavmp")
 
 [node name="LostFirefly" parent="Sorted/Triggers" index="1" instance=ExtResource("6_wwto0")]
-position = Vector2(135, -836)
+position = Vector2(251, -901)
 
-[node name="MarginContainer" type="MarginContainer" parent="UI" index="0"]
+[node name="StartDialogue" parent="Sorted/Triggers" index="2" instance=ExtResource("7_bcwa1")]
+position = Vector2(0, 112)
+collision_mask = 2
+
+[node name="StartDialogue2" parent="Sorted/Triggers" index="3" instance=ExtResource("7_bcwa1")]
+position = Vector2(-52, -339)
+scale = Vector2(2.845, 2.79)
+collision_mask = 2
+
+[node name="StartDialogue3" parent="Sorted/Triggers" index="4" instance=ExtResource("7_bcwa1")]
+position = Vector2(-4, -654)
+scale = Vector2(2.08, 2.04)
+collision_mask = 2
+
+[node name="StartDialogue4" parent="Sorted/Triggers" index="5" instance=ExtResource("7_bcwa1")]
+position = Vector2(5, -1741)
+scale = Vector2(2.84, 2.32)
+collision_mask = 2
+
+[node name="Keeper" parent="Sorted" index="3"]
+position = Vector2(19, -39)
+
+[node name="Footer" type="MarginContainer" parent="UI" index="0"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -52,33 +81,41 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Footer" index="0"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Reminder" type="Label" parent="UI/MarginContainer/VBoxContainer" index="0"]
-modulate = Color(1, 1, 1, 0)
+[node name="Dialogue" parent="UI/Footer/VBoxContainer" index="0" instance=ExtResource("7_k5thd")]
 layout_mode = 2
-text = "Space to continue"
-horizontal_alignment = 1
-vertical_alignment = 2
+entries = Array[String](["What happened to my glade? It's shrouded in darkness!", "Looks like my light fades when I'm in the dark for too long. This is troubling.", "A candle fly? It's all alone.", "Oh hi there little guy! Looks like we can work together to relight this glade.", "The path is blocked! Maybe the latern can help clear the way."])
 
-[node name="Dialogue" type="PanelContainer" parent="UI/MarginContainer/VBoxContainer" index="1"]
-layout_mode = 2
+[node name="Center" type="MarginContainer" parent="UI" index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/Dialogue" index="0"]
+[node name="Instruction" parent="UI/Center" index="0" instance=ExtResource("9_2tllg")]
 layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/Dialogue/MarginContainer" index="0"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-text = "What happened to my glade? Its shrouded in darkness!"
-autowrap_mode = 2
+entries = Array[String](["Use WASD/Arrow keys to move...", "Use the mouse to guide the candle fly...", "Stand next to the latern with a firefly nearby to light the lamp."])
 
 [connection signal="on_powered" from="Sorted/Objects/Lamp2" to="." method="on_complete"]
 [connection signal="on_triggered" from="Sorted/Triggers/GoToLevel" to="." method="_on_go_next_level"]
 [connection signal="on_collected" from="Sorted/Triggers/LostFirefly" to="Sorted/Fireflies" method="add_firefly"]
+[connection signal="on_collected" from="Sorted/Triggers/LostFirefly" to="Sorted/Objects/DeathHelper" method="disable" unbinds=1]
+[connection signal="on_collected" from="Sorted/Triggers/LostFirefly" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6 unbinds=1]
+[connection signal="on_collected" from="Sorted/Triggers/LostFirefly" to="UI/Center/Instruction" method="next_entry" flags=6 unbinds=1]
+[connection signal="triggered" from="Sorted/Triggers/StartDialogue" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
+[connection signal="triggered" from="Sorted/Triggers/StartDialogue" to="UI/Center/Instruction" method="next_entry" flags=6]
+[connection signal="triggered" from="Sorted/Triggers/StartDialogue2" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
+[connection signal="triggered" from="Sorted/Triggers/StartDialogue3" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
+[connection signal="triggered" from="Sorted/Triggers/StartDialogue4" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
+[connection signal="triggered" from="Sorted/Triggers/StartDialogue4" to="UI/Center/Instruction" method="next_entry" flags=6]
+[connection signal="on_dead" from="Sorted/Keeper" to="Sorted/Objects/DeathHelper" method="on_death"]

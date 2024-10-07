@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://duxygaimn51ch"]
+[gd_scene load_steps=12 format=4 uid="uid://duxygaimn51ch"]
 
 [ext_resource type="PackedScene" uid="uid://cpfakcolyervk" path="res://levels/level.tscn" id="1_lrjlm"]
 [ext_resource type="PackedScene" uid="uid://csyuydyv7hs4n" path="res://tiles/layers/toggle_layer.tscn" id="2_mrvgq"]
@@ -8,12 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="4_mbo3d"]
 [ext_resource type="PackedScene" uid="uid://bmybj3bp0v1dr" path="res://triggers/go_to_level.tscn" id="7_wucyh"]
 [ext_resource type="PackedScene" uid="uid://6m4g2q80t6kr" path="res://levels/level_three.tscn" id="8_l68u1"]
+[ext_resource type="PackedScene" uid="uid://dcmaibssowcvg" path="res://ui/dialogue.tscn" id="9_c1xcs"]
+[ext_resource type="PackedScene" uid="uid://47am5i3du6t3" path="res://triggers/trigger.tscn" id="9_q2dyk"]
+[ext_resource type="PackedScene" uid="uid://cy5mjilkmrkqk" path="res://ui/instruction.tscn" id="10_asex2"]
 
 [node name="LevelTwo" instance=ExtResource("1_lrjlm")]
 firefly_count = 1
 
 [node name="Base" parent="Map" index="0"]
-tile_map_data = PackedByteArray("AAD//wAAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQAAAAAAAwAAAAAAAQD+/wEAAwAAAAAAAQD+/wAAAwAAAAAAAQD+////AwAAAAAAAQD/////AwAAAAAAAQAAAP//AwAAAAAAAQD9////AwAAAAAAAQD9/wAAAwAAAAAAAQD8////AwAAAAAAAQD8//7/AwAAAAAAAQD7//7/AwAAAAAAAQD7////AwAAAAAAAQD8/wAAAwAAAAAAAQD7/wAAAwAAAAAAAQD7//3/AwAAAAAAAQD8//3/AwAAAAAAAQD7/wEAAwAAAAAAAQD6/wEAAgAAAAAAAQD6//3/AgAAAAAAAQD5/wEAAwAAAAAAAQD5/wAAAwAAAAAAAQD5////AwAAAAAAAQD5//7/AwAAAAAAAQD5//3/AwAAAAAAAQD4/wEAAwAAAAAAAQD3/wEAAwAAAAAAAQD3/wAAAwAAAAAAAQD4/wAAAwAAAAAAAQD4////AwAAAAAAAQD3////AwAAAAAAAQD4//7/AwAAAAAAAQD4//3/AwAAAAAAAQD3//3/AwAAAAAAAQD3//z/AwAAAAAAAQD2//z/AwAAAAAAAQD2//3/AwAAAAAAAQD1//z/AwAAAAAAAQD2/wAAAwAAAAAAAQD2/wEAAwAAAAAAAQD4/wIAAwAAAAAAAQD3/wIAAwAAAAAAAQD2/wIAAwAAAAAAAQD1//v/AgAAAAAAAQD3//v/AgAAAAAAAQD3//r/AgAAAAAAAQD1//r/AgAAAAAAAQD1//n/AwAAAAAAAQD2//n/AwAAAAAAAQD3//n/AwAAAAAAAQD1//j/AwAAAAAAAQD2//j/AwAAAAAAAQD3//j/AwAAAAAAAQD4//z/AwAAAAAAAQD2//f/AwAAAAAAAQD3//f/AwAAAAAAAQD1//f/AwAAAAAAAQD1//b/AwAAAAAAAQD2//b/AwAAAAAAAQD3//b/AwAAAAAAAQD1//X/AwAAAAAAAQD2//X/AwAAAAAAAQD3//X/AwAAAAAAAQD5//z/AwAAAAAAAQD2//T/AwAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD//wAAAwAAAAAAAgD//wEAAwAAAAAABAAAAAEAAwAAAAAAAQAAAAAAAwAAAAAABQD+/wEABAAAAAAAAwD+/wAAAwAAAAAAAwD+////AwAAAAAAAQD/////AwAAAAAABQAAAP//AwAAAAAAAgD9////AwAAAAAAAwD9/wAABAAAAAAAAgD8////AwAAAAAABQD8//7/BAAAAAAAAQD7//7/AwAAAAAAAwD7////BAAAAAAAAwD8/wAAAwAAAAAAAgD7/wAAAwAAAAAAAgD7//3/BAAAAAAAAgD8//3/BAAAAAAAAwD7/wEABAAAAAAAAgD6/wEAAgAAAAAAAQD6//3/AgAAAAAAAgD5/wEAAwAAAAAAAgD5/wAAAwAAAAAABQD5////AwAAAAAAAwD5//7/AwAAAAAAAQD5//3/AwAAAAAABQD4/wEAAwAAAAAABQD3/wEAAwAAAAAAAQD3/wAAAwAAAAAAAwD4/wAAAwAAAAAAAwD4////BAAAAAAAAwD3////BAAAAAAAAQD4//7/AwAAAAAAAwD4//3/AwAAAAAAAQD3//3/AwAAAAAAAQD3//z/AwAAAAAAAQD2//z/AwAAAAAAAQD2//3/AwAAAAAABAD1//z/AwAAAAAAAgD2/wAAAwAAAAAAAgD2/wEABAAAAAAAAQD4/wIAAwAAAAAAAgD3/wIABAAAAAAAAQD2/wIABAAAAAAAAgD1//v/AgAAAAAAAwD3//v/AgAAAAAAAQD3//r/AgAAAAAAAQD1//r/AgAAAAAAAwD1//n/BAAAAAAAAQD2//n/AwAAAAAABQD3//n/BAAAAAAAAwD1//j/BAAAAAAAAwD2//j/AwAAAAAABAD3//j/AwAAAAAABQD4//z/BAAAAAAAAgD2//f/AwAAAAAABAD3//f/AwAAAAAABAD1//f/AwAAAAAABQD1//b/AwAAAAAAAwD2//b/AwAAAAAABQD3//b/BAAAAAAAAQD1//X/AwAAAAAAAwD2//X/AwAAAAAABAD3//X/AwAAAAAAAQD5//z/BAAAAAAAAwD2//T/BAAAAAAAAQABAAIAAQAAAAAAAQAAAAIAAQAAAAAAAQD//wIAAQAAAAAAAQD+/wIAAQAAAAAAAQD9/wIAAQAAAAAAAQD9/wEAAQAAAAAAAQD8/wEAAQAAAAAAAQD6/wIAAgAAAAAAAgD5/wIAAgAAAAAAAwD5/wMAAgAAAAAAAQD4/wMAAgAAAAAAAwD3/wMAAQAAAAAAAQD2/wMAAQAAAAAAAQD1/wMAAQAAAAAAAQD1/wIAAQAAAAAAAQD1/wEAAQAAAAAAAQD1/wAAAQAAAAAAAQD1////AQAAAAAAAQD2////AQAAAAAAAQD2//7/AQAAAAAAAQD3//7/AQAAAAAAAQD1//7/AQAAAAAAAQD1//3/AQAAAAAAAQD0//z/AgAAAAAAAQD0//v/AgAAAAAAAQD0//r/AgAAAAAAAwD0//n/AgAAAAAAAwD0//3/AQAAAAAAAQD0//j/AgAAAAAAAgD0//f/AQAAAAAAAQD0//b/AQAAAAAAAQD0//X/AQAAAAAAAQD0//T/AQAAAAAAAQD1//T/AQAAAAAAAQD1//P/AQAAAAAAAQD2//P/AQAAAAAAAQD3//P/AQAAAAAAAQD3//T/AQAAAAAAAQD4//T/AQAAAAAAAQD4//X/AQAAAAAAAQD4//b/AQAAAAAAAQD4//f/AQAAAAAAAQD4//j/AQAAAAAAAQD4//n/AgAAAAAAAwD4//r/AgAAAAAAAgD4//v/AgAAAAAAAgD5//v/AgAAAAAAAQD6//z/AgAAAAAAAgD6//v/AgAAAAAAAwD7//z/AQAAAAAAAQD8//z/AQAAAAAAAQD9//z/AQAAAAAAAQD9//3/AQAAAAAAAQD9//7/AQAAAAAAAQD+//7/AQAAAAAAAQD///7/AQAAAAAAAQAAAP7/AQAAAAAAAQABAP7/AQAAAAAAAQABAP//AQAAAAAAAQABAAAAAQAAAAAAAQABAAEAAQAAAAAAAQDz//n/AgAAAAAAAQD7/wIAAgAAAAAAAQA=")
 
 [node name="ToggleLayer" parent="Map" index="1" instance=ExtResource("2_mrvgq")]
 tile_map_data = PackedByteArray("AAD6/wAAAAAAAAAAAQD6////AAAAAAAAAQD6//7/AAAAAAAAAQD2//v/AAAAAAAAAQA=")
@@ -22,7 +25,7 @@ tile_map_data = PackedByteArray("AAD6/wAAAAAAAAAAAQD6////AAAAAAAAAQD6//7/AAAAAAA
 tile_map_data = PackedByteArray("AAD2//r/AAAAAAAAAQA=")
 
 [node name="Tendril" parent="Sorted/Shadows" index="0" instance=ExtResource("3_dwoo7")]
-position = Vector2(259, -1291)
+position = Vector2(136, -1362)
 
 [node name="Conduit" parent="Sorted/Objects" index="0" instance=ExtResource("3_vgwfi")]
 position = Vector2(-121, -438)
@@ -31,7 +34,7 @@ position = Vector2(-121, -438)
 position = Vector2(-763, -893)
 
 [node name="Lamp" parent="Sorted/Objects" index="2" instance=ExtResource("4_mbo3d")]
-position = Vector2(125, -1090)
+position = Vector2(132, -1097)
 
 [node name="LostFirefly" parent="Sorted/Triggers" index="0" instance=ExtResource("3_f5vnj")]
 position = Vector2(-1145, -454)
@@ -40,10 +43,60 @@ position = Vector2(-1145, -454)
 position = Vector2(392, -1354)
 level = ExtResource("8_l68u1")
 
+[node name="Trigger" parent="Sorted/Triggers" index="2" instance=ExtResource("9_q2dyk")]
+position = Vector2(-785, -459)
+scale = Vector2(1.52, 4.16)
+collision_mask = 2
+
+[node name="Footer" type="MarginContainer" parent="UI" index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -95.0
+offset_right = 196.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Footer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Dialogue" parent="UI/Footer/VBoxContainer" index="0" instance=ExtResource("9_c1xcs")]
+layout_mode = 2
+entries = Array[String](["Another candle fly! Maybe it can help with activating the other conduit!"])
+
+[node name="Center" type="MarginContainer" parent="UI" index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Instruction" parent="UI/Center" index="0" instance=ExtResource("10_asex2")]
+layout_mode = 2
+entries = Array[String](["Click to have a candle fly hold it's position. Right click to recall them."])
+
 [connection signal="on_powered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="enable"]
 [connection signal="on_unpowered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="disable"]
 [connection signal="on_powered" from="Sorted/Objects/Conduit2" to="Map/ToggleLayer2" method="enable"]
 [connection signal="on_unpowered" from="Sorted/Objects/Conduit2" to="Map/ToggleLayer2" method="disable"]
 [connection signal="on_powered" from="Sorted/Objects/Lamp" to="." method="on_complete"]
 [connection signal="on_collected" from="Sorted/Triggers/LostFirefly" to="Sorted/Fireflies" method="add_firefly"]
+[connection signal="on_collected" from="Sorted/Triggers/LostFirefly" to="UI/Center/Instruction" method="next_entry" flags=6 unbinds=1]
 [connection signal="on_triggered" from="Sorted/Triggers/GoToLevel" to="." method="_on_go_next_level"]
+[connection signal="triggered" from="Sorted/Triggers/Trigger" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://6m4g2q80t6kr"]
+[gd_scene load_steps=14 format=4 uid="uid://6m4g2q80t6kr"]
 
 [ext_resource type="PackedScene" uid="uid://cpfakcolyervk" path="res://levels/level.tscn" id="1_w50jk"]
 [ext_resource type="PackedScene" uid="uid://csyuydyv7hs4n" path="res://tiles/layers/toggle_layer.tscn" id="2_pfyyv"]
@@ -11,14 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://b7b8nhqnvv3ga" path="res://triggers/axe.tscn" id="7_430iv"]
 [ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="8_4eihk"]
 [ext_resource type="PackedScene" uid="uid://bb8wdyrusk0dj" path="res://objects/tree.tscn" id="9_ukgi0"]
+[ext_resource type="PackedScene" uid="uid://dcmaibssowcvg" path="res://ui/dialogue.tscn" id="12_17cwd"]
+[ext_resource type="PackedScene" uid="uid://cy5mjilkmrkqk" path="res://ui/instruction.tscn" id="13_ri336"]
 
 [node name="LevelThree" instance=ExtResource("1_w50jk")]
-
-[node name="CanvasModulate" parent="." index="0"]
-visible = false
+firefly_count = 2
 
 [node name="Base" parent="Map" index="0"]
-tile_map_data = PackedByteArray("AAD+/wAAAwAAAAAAAQD+/wEAAwAAAAAAAQD+/wIAAwAAAAAAAQD//wIAAwAAAAAAAQD//wMAAwAAAAAAAQAAAAMAAwAAAAAAAQAAAAIAAwAAAAAAAQABAAIAAwAAAAAAAQABAAEAAwAAAAAAAQABAAAAAwAAAAAAAQAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////AwAAAAAAAQD//wAAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQABAAMAAwAAAAAAAQACAAIAAwAAAAAAAQACAAEAAwAAAAAAAQACAAAAAwAAAAAAAQABAP//AwAAAAAAAQD8/wIAAwAAAAAAAQD8/wEAAwAAAAAAAQD8/wAAAwAAAAAAAQD7/wAAAwAAAAAAAQD7/wEAAwAAAAAAAQD7/wIAAwAAAAAAAQD///3/AwAAAAAAAQAAAP3/AwAAAAAAAQABAP3/AwAAAAAAAQD///z/AwAAAAAAAQAAAPz/AwAAAAAAAQABAPz/AwAAAAAAAQABAP7/AwAAAAAAAQD///7/AwAAAAAAAQD6/wAAAwAAAAAAAQD6/wEAAwAAAAAAAQD6/wIAAwAAAAAAAQD+/wMAAwAAAAAAAQD9/wMAAgAAAAAAAQD///v/AwAAAAAAAQAAAPv/AwAAAAAAAQABAPv/AwAAAAAAAQD5/wAAAwAAAAAAAQD5/wEAAwAAAAAAAQD4/wAAAwAAAAAAAQD5////AwAAAAAAAQD4////AwAAAAAAAQD4/wEAAwAAAAAAAQD6////AwAAAAAAAQD7////AwAAAAAAAQD6//7/AwAAAAAAAQD5//7/AwAAAAAAAQD3/wAAAwAAAAAAAQD3/wEAAwAAAAAAAQD2/wAAAwAAAAAAAQD2/wEAAwAAAAAAAQD3/wIAAwAAAAAAAQD2/wIAAwAAAAAAAQD1/wEAAwAAAAAAAQD1/wAAAwAAAAAAAQD2////AwAAAAAAAQD1////AwAAAAAAAQD0////AwAAAAAAAQD2//7/AwAAAAAAAQD1//7/AwAAAAAAAQD0//7/AwAAAAAAAQD0//3/AwAAAAAAAQD1//3/AwAAAAAAAQD0//z/AwAAAAAAAQD1//z/AwAAAAAAAQD0//v/AwAAAAAAAQD0/wAAAwAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD+/wAAAwAAAAAAAgD+/wEAAwAAAAAAAwD+/wIAAwAAAAAAAwD//wIAAwAAAAAAAQD//wMAAwAAAAAABQAAAAMAAwAAAAAAAQAAAAIAAwAAAAAAAgABAAIAAwAAAAAAAwABAAEAAwAAAAAAAwABAAAAAwAAAAAABAAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////BAAAAAAAAwD//wAABAAAAAAAAwD//wEAAwAAAAAABQAAAAEAAwAAAAAAAgABAAMABAAAAAAAAwACAAIABAAAAAAAAgACAAEAAwAAAAAABAACAAAABAAAAAAAAQABAP//AwAAAAAAAwD8/wIAAwAAAAAAAwD8/wEABAAAAAAAAwD8/wAABAAAAAAAAgD7/wAAAwAAAAAAAgD7/wEAAwAAAAAAAQD7/wIAAwAAAAAABQD///3/AwAAAAAAAQAAAP3/AwAAAAAAAQABAP3/AwAAAAAAAwD///z/AwAAAAAABQAAAPz/AwAAAAAABQABAPz/AwAAAAAABAABAP7/AwAAAAAAAgD///7/AwAAAAAABQD6/wAAAwAAAAAAAQD6/wEAAwAAAAAABQD6/wIABAAAAAAAAgD+/wMABAAAAAAAAwD9/wMAAgAAAAAAAQD///v/BAAAAAAAAQAAAPv/AwAAAAAAAgABAPv/BAAAAAAAAwD5/wAAAwAAAAAABQD5/wEABAAAAAAAAwD4/wAAAwAAAAAABAD5////AwAAAAAAAQD4////AwAAAAAAAQD4/wEAAwAAAAAAAgD6////AwAAAAAAAgD7////AwAAAAAABAD6//7/BAAAAAAAAgD5//7/AwAAAAAABAD3/wAAAwAAAAAABQD3/wEAAwAAAAAABQD2/wAAAwAAAAAABQD2/wEAAwAAAAAAAQD3/wIAAwAAAAAAAQD2/wIAAwAAAAAAAQD1/wEABAAAAAAAAwD1/wAABAAAAAAAAwD2////AwAAAAAAAgD1////AwAAAAAABQD0////AwAAAAAABAD2//7/AwAAAAAAAQD1//7/AwAAAAAAAQD0//7/AwAAAAAABQD0//3/AwAAAAAAAwD1//3/AwAAAAAAAgD0//z/BAAAAAAAAwD1//z/BAAAAAAAAQD0//v/BAAAAAAAAwD0/wAABAAAAAAAAwACAAMAAQAAAAAAAQACAAQAAQAAAAAAAQABAAQAAQAAAAAAAQAAAAQAAQAAAAAAAQD//wQAAQAAAAAAAQD+/wQAAgAAAAAAAQD9/wQAAgAAAAAAAgD8/wQAAgAAAAAAAwADAAMAAQAAAAAAAQADAAIAAQAAAAAAAQADAAEAAQAAAAAAAQADAAAAAQAAAAAAAQADAP//AQAAAAAAAQACAP//AQAAAAAAAQACAP7/AQAAAAAAAQACAP3/AQAAAAAAAQACAPz/AQAAAAAAAQACAPv/AQAAAAAAAQACAPr/AQAAAAAAAQABAPr/AQAAAAAAAQAAAPr/AQAAAAAAAQD///r/AQAAAAAAAQD+//r/AQAAAAAAAQD+//v/AQAAAAAAAQD+//z/AgAAAAAAAwD+//3/AgAAAAAAAQD+//7/AgAAAAAAAgD+////AgAAAAAAAQD9////AgAAAAAAAQD8////AgAAAAAAAQD8//7/AgAAAAAAAwD7//7/AgAAAAAAAwD7//3/AgAAAAAAAwD6//3/AgAAAAAAAwD5//3/AQAAAAAAAQD4//3/AQAAAAAAAQD4//7/AQAAAAAAAQD3////AQAAAAAAAQD3//7/AQAAAAAAAQD2//3/AQAAAAAAAQD3//3/AQAAAAAAAQD2//z/AQAAAAAAAQD2//v/AQAAAAAAAQD1//v/AQAAAAAAAQD1//r/AQAAAAAAAQD0//r/AQAAAAAAAQDz//r/AQAAAAAAAQDz//v/AQAAAAAAAQDz//z/AQAAAAAAAQDz//3/AQAAAAAAAQDz//7/AQAAAAAAAQDz////AQAAAAAAAQDz/wAAAQAAAAAAAQDz/wEAAQAAAAAAAQD0/wEAAQAAAAAAAQD0/wIAAQAAAAAAAQD1/wIAAQAAAAAAAQD1/wMAAQAAAAAAAQD2/wMAAQAAAAAAAQD3/wMAAQAAAAAAAQD4/wMAAQAAAAAAAQD4/wIAAQAAAAAAAQD5/wIAAQAAAAAAAQD5/wMAAQAAAAAAAQD6/wMAAQAAAAAAAQD7/wMAAgAAAAAAAgD8/wMAAgAAAAAAAgD9/wUAAgAAAAAAAwD9//7/AgAAAAAAAQD9//3/AgAAAAAAAgA=")
 
 [node name="Base2" parent="Map" index="1" instance=ExtResource("2_to2qf")]
 tile_map_data = PackedByteArray("AAD+/wAAAwAAAAAAAQD+/wEAAwAAAAAAAQD+/wIAAwAAAAAAAQD//wIAAwAAAAAAAQD//wMAAwAAAAAAAQAAAAMAAwAAAAAAAQAAAAIAAwAAAAAAAQABAAIAAwAAAAAAAQABAAEAAwAAAAAAAQABAAAAAwAAAAAAAQAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////AwAAAAAAAQD//wAAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQABAAMAAwAAAAAAAQACAAIAAwAAAAAAAQACAAEAAwAAAAAAAQACAAAAAwAAAAAAAQABAP//AwAAAAAAAQD8/wIAAwAAAAAAAQD8/wEAAwAAAAAAAQD8/wAAAwAAAAAAAQD7/wAAAwAAAAAAAQD7/wEAAwAAAAAAAQD7/wIAAwAAAAAAAQD///3/AwAAAAAAAQAAAP3/AwAAAAAAAQABAP3/AwAAAAAAAQD///z/AwAAAAAAAQAAAPz/AwAAAAAAAQABAPz/AwAAAAAAAQABAP7/AAAAAAAAAgD///7/AAAAAAAAAgD6/wAAAwAAAAAAAQD6/wEAAwAAAAAAAQD6/wIAAwAAAAAAAQD+/wMAAwAAAAAAAQD9/wMAAgAAAAAAAQA=")
@@ -30,10 +30,10 @@ tile_map_data = PackedByteArray("AAD9/wEAAAAAAAAAAQD9/wIAAAAAAAAAAQD9/wAAAAAAAAA
 tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAgA=")
 
 [node name="Tendril" parent="Sorted/Shadows" index="0" instance=ExtResource("4_rlwuh")]
-position = Vector2(-883, -461)
+position = Vector2(-779, -520)
 
 [node name="Tendril2" parent="Sorted/Shadows" index="1" instance=ExtResource("5_bfcef")]
-position = Vector2(-1026, -775)
+position = Vector2(-1159, -839)
 
 [node name="Log" parent="Sorted/Objects" index="0" instance=ExtResource("4_ofg5d")]
 position = Vector2(-633, -186)
@@ -52,7 +52,64 @@ position = Vector2(-574, -526)
 collision_mask = 128
 
 [node name="Axe" parent="Sorted/Triggers" index="1" instance=ExtResource("7_430iv")]
-position = Vector2(244, 124)
+position = Vector2(772, -131)
+
+[node name="EndGame" parent="Sorted/Triggers" index="2" instance=ExtResource("5_n0x2r")]
+position = Vector2(-765, -1029)
+
+[node name="Trigger" parent="Sorted/Triggers" index="3" instance=ExtResource("5_n0x2r")]
+position = Vector2(-500, -391)
+rotation = 1.35392
+scale = Vector2(1.94752, 4.76168)
+collision_mask = 2
+
+[node name="Trigger2" parent="Sorted/Triggers" index="4" instance=ExtResource("5_n0x2r")]
+position = Vector2(4, 118)
+collision_mask = 2
+
+[node name="Footer" type="MarginContainer" parent="UI" index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -95.0
+offset_right = 196.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Footer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Dialogue" parent="UI/Footer/VBoxContainer" index="0" instance=ExtResource("12_17cwd")]
+layout_mode = 2
+entries = Array[String](["That axe is obstructed maybe I can make a bridge of some kind?", "Maybe I can use an axe to clear the way.", "I wonder what else lurks in the shadows? Or what even caused this?"])
+
+[node name="Center" type="MarginContainer" parent="UI" index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 256
+
+[node name="Instruction" parent="UI/Center" index="0" instance=ExtResource("13_ri336")]
+layout_mode = 2
+entries = Array[String](["You push logs by walking into them.", "Press space with the axe to fell the tree."])
 
 [connection signal="on_powered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="enable"]
 [connection signal="on_unpowered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="disable"]
@@ -62,3 +119,7 @@ position = Vector2(244, 124)
 [connection signal="triggered" from="Sorted/Triggers/LogAcceptor" to="Sorted/Objects/Log" method="queue_free"]
 [connection signal="triggered" from="Sorted/Triggers/Axe" to="Sorted/Triggers/Axe" method="queue_free"]
 [connection signal="triggered" from="Sorted/Triggers/Axe" to="Sorted/Keeper" method="add_item" binds= ["axe"]]
+[connection signal="triggered" from="Sorted/Triggers/EndGame" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
+[connection signal="triggered" from="Sorted/Triggers/Trigger" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
+[connection signal="triggered" from="Sorted/Triggers/Trigger2" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
+[connection signal="triggered" from="Sorted/Triggers/Trigger2" to="UI/Center/Instruction" method="next_entry" flags=6]

@@ -9,8 +9,10 @@ collision_layer = 48
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(128, 64)
 texture = ExtResource("1_1sdx8")
 offset = Vector2(0, -96)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(128, 64)
 polygon = PackedVector2Array(256, 64, 128, 128, -256, -64, -128, -128)

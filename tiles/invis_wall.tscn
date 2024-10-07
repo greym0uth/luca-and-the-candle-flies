@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtneia3cgm72r"]
+
+[ext_resource type="PackedScene" uid="uid://en83mqyuh6g" path="res://tiles/tile_collision_polygon.tscn" id="2_tvrcv"]
+
+[node name="InvisWall" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="TileCollisionPolygon" parent="." instance=ExtResource("2_tvrcv")]

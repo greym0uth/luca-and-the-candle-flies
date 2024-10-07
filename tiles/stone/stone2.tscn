@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbadgpmvs5ors"]
+
+[ext_resource type="Texture2D" uid="uid://hin4m33agcr" path="res://tiles/stone/Stone3.png" id="1_j1i0b"]
+[ext_resource type="PackedScene" uid="uid://en83mqyuh6g" path="res://tiles/tile_collision_polygon.tscn" id="2_v1qob"]
+
+[node name="Tile" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_j1i0b")
+
+[node name="TileCollisionPolygon" parent="." instance=ExtResource("2_v1qob")]

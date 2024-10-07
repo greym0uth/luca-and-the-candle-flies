@@ -1,20 +1,27 @@
-[gd_scene load_steps=7 format=4 uid="uid://15ag0i6vwh0q"]
+[gd_scene load_steps=11 format=4 uid="uid://15ag0i6vwh0q"]
 
 [ext_resource type="PackedScene" uid="uid://cpfakcolyervk" path="res://levels/level.tscn" id="1_ngui6"]
 [ext_resource type="PackedScene" uid="uid://csyuydyv7hs4n" path="res://tiles/layers/toggle_layer.tscn" id="2_2ftci"]
 [ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="2_7wvhh"]
+[ext_resource type="PackedScene" uid="uid://dmjo0ha3vaboe" path="res://tendril.tscn" id="3_2tjol"]
 [ext_resource type="PackedScene" uid="uid://8gohnbqmbf2i" path="res://objects/conduit.tscn" id="3_rn5se"]
 [ext_resource type="PackedScene" uid="uid://bmybj3bp0v1dr" path="res://triggers/go_to_level.tscn" id="4_0juxg"]
 [ext_resource type="PackedScene" uid="uid://duxygaimn51ch" path="res://levels/level_two.tscn" id="6_py0go"]
+[ext_resource type="PackedScene" uid="uid://47am5i3du6t3" path="res://triggers/trigger.tscn" id="8_3r3p3"]
+[ext_resource type="PackedScene" uid="uid://dcmaibssowcvg" path="res://ui/dialogue.tscn" id="9_j4xvi"]
+[ext_resource type="PackedScene" uid="uid://cy5mjilkmrkqk" path="res://ui/instruction.tscn" id="10_l2c76"]
 
 [node name="LevelOne" instance=ExtResource("1_ngui6")]
 firefly_count = 1
 
 [node name="Base" parent="Map" index="0"]
-tile_map_data = PackedByteArray("AAD//wAAAwAAAAAAAQD+/wAAAwAAAAAAAQD+/wEAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////AwAAAAAAAQD+////AwAAAAAAAQD9////AwAAAAAAAQD9/wAAAwAAAAAAAQD9/wEAAwAAAAAAAQD8/wAAAwAAAAAAAQD8////AwAAAAAAAQD7////AwAAAAAAAQD7//7/AwAAAAAAAQD8//7/AwAAAAAAAQD9//7/AwAAAAAAAQD8//3/AwAAAAAAAQD7//3/AwAAAAAAAQD6//3/AwAAAAAAAQD6//7/AwAAAAAAAQD5//7/AwAAAAAAAQD5//3/AwAAAAAAAQD6//z/AwAAAAAAAQD7//z/AwAAAAAAAQD7//v/AwAAAAAAAQD+//7/AwAAAAAAAQD9//3/AwAAAAAAAQD///7/AwAAAAAAAQD+//3/AwAAAAAAAQD8//z/AwAAAAAAAQD9//z/AwAAAAAAAQD3//3/AwAAAAAAAQD3//z/AwAAAAAAAQD3//v/AwAAAAAAAQD3//r/AwAAAAAAAQD4//r/AwAAAAAAAQD5//r/AwAAAAAAAQD5//n/AwAAAAAAAQD6//n/AwAAAAAAAQD7//n/AwAAAAAAAQD4//n/AwAAAAAAAQD3//n/AwAAAAAAAQD2//r/AwAAAAAAAQD2//n/AwAAAAAAAQD2//j/AwAAAAAAAQD3//j/AwAAAAAAAQD4//j/AwAAAAAAAQD2//v/AwAAAAAAAQD5//j/AwAAAAAAAQD1//n/AwAAAAAAAQD1//j/AwAAAAAAAQD1//f/AwAAAAAAAQD2//f/AwAAAAAAAQD3//f/AwAAAAAAAQD8//v/AwAAAAAAAQD4//v/AwAAAAAAAQD4//3/AgAAAAAAAQD4//z/AgAAAAAAAQD6//r/AgAAAAAAAQD7//r/AgAAAAAAAQD1//b/AwAAAAAAAQD2//b/AwAAAAAAAQD3//b/AwAAAAAAAQD1//X/AwAAAAAAAQD2//X/AwAAAAAAAQD0//X/AwAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD//wAAAwAAAAAAAQD+/wAAAwAAAAAAAQD+/wEAAwAAAAAAAgD//wEAAwAAAAAABAAAAAEAAwAAAAAABQAAAAAAAwAAAAAAAQAAAP//BAAAAAAAAQD/////AwAAAAAAAgD+////AwAAAAAABAD9////AwAAAAAAAgD9/wAABAAAAAAAAgD9/wEABAAAAAAAAQD8/wAABAAAAAAAAwD8////AwAAAAAABAD7////AwAAAAAAAQD7//7/AwAAAAAAAQD8//7/AwAAAAAABAD9//7/AwAAAAAABQD8//3/AwAAAAAAAwD7//3/AwAAAAAABAD6//3/AwAAAAAABAD6//7/BAAAAAAAAgD5//7/BAAAAAAAAQD5//3/BAAAAAAAAgD6//z/AwAAAAAABQD7//z/BAAAAAAAAQD7//v/AwAAAAAABQD+//7/AwAAAAAAAQD9//3/AwAAAAAABQD///7/BAAAAAAAAgD+//3/AwAAAAAABQD8//z/AwAAAAAAAgD9//z/BAAAAAAAAwD3//3/AwAAAAAAAQD3//z/AwAAAAAABAD3//v/BAAAAAAAAQD3//r/AwAAAAAAAgD4//r/AwAAAAAABQD5//r/AwAAAAAABAD5//n/AwAAAAAABAD6//n/AwAAAAAAAwD7//n/AwAAAAAAAgD4//n/AwAAAAAAAwD3//n/AwAAAAAAAgD2//r/AwAAAAAAAgD2//n/AwAAAAAAAQD2//j/AwAAAAAABAD3//j/AwAAAAAAAgD4//j/BAAAAAAAAQD2//v/AwAAAAAAAwD5//j/AwAAAAAAAgD1//n/BAAAAAAAAgD1//j/BAAAAAAAAQD1//f/AwAAAAAABQD2//f/AwAAAAAAAQD3//f/AwAAAAAAAQD8//v/BAAAAAAAAQD4//v/BAAAAAAAAgD4//3/AgAAAAAAAwD4//z/AgAAAAAAAQD6//r/AgAAAAAAAQD7//r/AgAAAAAAAQD1//b/AwAAAAAABQD2//b/AwAAAAAAAwD3//b/AwAAAAAAAgD1//X/BAAAAAAAAgD2//X/BAAAAAAAAwD0//X/AwAAAAAABAABAAIAAQAAAAAAAQAAAAIAAQAAAAAAAQD//wIAAQAAAAAAAQD+/wIAAQAAAAAAAQD9/wIAAQAAAAAAAQD8/wIAAQAAAAAAAQD8/wEAAQAAAAAAAQD7/wEAAQAAAAAAAQD7/wAAAQAAAAAAAQD6/wAAAgAAAAAAAQD6////AgAAAAAAAQD5////AgAAAAAAAgD4////AgAAAAAAAgD4//7/AgAAAAAAAgD3//7/AgAAAAAAAwD2//7/AgAAAAAAAgD2//3/AQAAAAAAAQD2//z/AQAAAAAAAQD1//z/AQAAAAAAAQD1//v/AQAAAAAAAQD1//r/AQAAAAAAAQD0//r/AQAAAAAAAQD0//n/AQAAAAAAAQD0//j/AQAAAAAAAQD0//f/AQAAAAAAAQD0//b/AQAAAAAAAQDz//b/AQAAAAAAAQDz//X/AQAAAAAAAQDz//T/AQAAAAAAAQD0//T/AQAAAAAAAQD1//T/AQAAAAAAAQD2//T/AQAAAAAAAQD3//T/AQAAAAAAAQD3//X/AQAAAAAAAQD4//X/AQAAAAAAAQD4//b/AQAAAAAAAQD4//f/AQAAAAAAAQD5//f/AQAAAAAAAQD6//f/AQAAAAAAAQD6//j/AQAAAAAAAQD7//j/AgAAAAAAAQD8//j/AgAAAAAAAwD8//n/AgAAAAAAAQD8//r/AgAAAAAAAwD9//r/AgAAAAAAAgD9//v/AgAAAAAAAQD+//v/AgAAAAAAAwD+//z/AgAAAAAAAgD///z/AQAAAAAAAQD///3/AQAAAAAAAQAAAP3/AQAAAAAAAQAAAP7/AQAAAAAAAQABAP7/AQAAAAAAAQABAP//AQAAAAAAAQABAAAAAQAAAAAAAQABAAEAAQAAAAAAAQD3////AgAAAAAAAgA=")
 
 [node name="ToggleLayer" parent="Map" index="1" instance=ExtResource("2_2ftci")]
 tile_map_data = PackedByteArray("AAD5//z/AAAAAAAAAQD5//v/AAAAAAAAAQD6//v/AAAAAAAAAQA=")
+
+[node name="Tendril" parent="Sorted/Shadows" index="0" instance=ExtResource("3_2tjol")]
+position = Vector2(7, -1293)
 
 [node name="Lamp" parent="Sorted/Objects" index="0" instance=ExtResource("2_7wvhh")]
 position = Vector2(127, -62)
@@ -26,11 +33,61 @@ position = Vector2(-384, -562)
 [node name="Lamp2" parent="Sorted/Objects" index="2" instance=ExtResource("2_7wvhh")]
 position = Vector2(3, -1023)
 
-[node name="GoToLevel" parent="Sorted/Triggers" index="0" instance=ExtResource("4_0juxg")]
+[node name="Trigger" parent="Sorted/Triggers" index="0" instance=ExtResource("8_3r3p3")]
+position = Vector2(-52, -370)
+scale = Vector2(4.96, 1.96)
+collision_mask = 2
+
+[node name="GoToLevel" parent="Sorted/Triggers" index="1" instance=ExtResource("4_0juxg")]
 position = Vector2(5, -1414)
 level = ExtResource("6_py0go")
+
+[node name="Footer" type="MarginContainer" parent="UI" index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -95.0
+offset_right = 196.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Footer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Dialogue" parent="UI/Footer/VBoxContainer" index="0" instance=ExtResource("9_j4xvi")]
+layout_mode = 2
+entries = Array[String](["Its a conduit! Maybe the candle fly can activate it!"])
+
+[node name="Center" type="MarginContainer" parent="UI" index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Instruction" parent="UI/Center" index="0" instance=ExtResource("10_l2c76")]
+layout_mode = 2
+entries = Array[String](["Guide the candle fly over the conduit to activate it."])
 
 [connection signal="on_powered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="enable"]
 [connection signal="on_unpowered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="disable"]
 [connection signal="on_powered" from="Sorted/Objects/Lamp2" to="." method="on_complete"]
+[connection signal="triggered" from="Sorted/Triggers/Trigger" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
+[connection signal="triggered" from="Sorted/Triggers/Trigger" to="UI/Center/Instruction" method="next_entry" flags=6]
 [connection signal="on_triggered" from="Sorted/Triggers/GoToLevel" to="." method="_on_go_next_level"]

@@ -12,7 +12,7 @@ var is_complete = false
 func _ready():
     for i in range(firefly_count):
         var firefly_instance = firefly.instantiate()
-        get_node("Sorted/Fireflies").add_child(firefly_instance)
+        get_node("Sorted/Fireflies").call_deferred("add_child", firefly_instance)
         firefly_instance.position.x += i * 100
 
 

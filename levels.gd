@@ -8,8 +8,8 @@ func _ready():
 
 func on_go_to_level(level: PackedScene):
     for child in get_children():
-        child.queue_free()
+        child.call_deferred("queue_free")
 
     var level_instance = level.instantiate()
-    add_child(level_instance)
+    call_deferred("add_child", level_instance)
     level_instance.on_go_to_level.connect(on_go_to_level)
