@@ -1,0 +1,354 @@
+[gd_scene load_steps=17 format=4 uid="uid://dkmdt6k7uoifl"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_tk0r6"]
+[ext_resource type="Script" path="res://camera.gd" id="2_uv0my"]
+[ext_resource type="PackedScene" uid="uid://covog2qyrl0i1" path="res://tiles/layers/base.tscn" id="3_0uitc"]
+[ext_resource type="PackedScene" uid="uid://bb8wdyrusk0dj" path="res://objects/tree.tscn" id="4_0qnam"]
+[ext_resource type="PackedScene" uid="uid://co00kfl00cvcs" path="res://keeper.tscn" id="4_8yim7"]
+[ext_resource type="Script" path="res://fireflies.gd" id="5_axxc8"]
+[ext_resource type="PackedScene" uid="uid://cxv2h5xqfw4qd" path="res://triggers/lost_firefly.tscn" id="6_rjbw8"]
+[ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="7_736n7"]
+[ext_resource type="PackedScene" uid="uid://47am5i3du6t3" path="res://triggers/trigger.tscn" id="7_cdo7y"]
+[ext_resource type="PackedScene" uid="uid://dcmaibssowcvg" path="res://ui/dialogue.tscn" id="9_siyd4"]
+
+[sub_resource type="Animation" id="Animation_n0uks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.135226, 0.189991, 0.314453, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pjelp"]
+resource_name = "relight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.135226, 0.189991, 0.314453, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qk5t2"]
+_data = {
+"RESET": SubResource("Animation_n0uks"),
+"relight": SubResource("Animation_pjelp")
+}
+
+[sub_resource type="Animation" id="Animation_658oe"]
+resource_name = "fade_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/MarginContainer/VBoxContainer/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/MarginContainer/VBoxContainer/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/MarginContainer/VBoxContainer/Label2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/MarginContainer/VBoxContainer/Label2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5go78"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/MarginContainer/VBoxContainer/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/MarginContainer/VBoxContainer/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/MarginContainer/VBoxContainer/Label2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/MarginContainer/VBoxContainer/Label2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pr2y"]
+_data = {
+"RESET": SubResource("Animation_5go78"),
+"fade_out": SubResource("Animation_658oe")
+}
+
+[node name="LevelEnd" type="Node2D"]
+script = ExtResource("1_tk0r6")
+firefly_count = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.135226, 0.189991, 0.314453, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+script = ExtResource("2_uv0my")
+target = NodePath("../Sorted/Keeper")
+
+[node name="Map" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Base" parent="Map" instance=ExtResource("3_0uitc")]
+tile_map_data = PackedByteArray("AAD//wAAAwAAAAAABAD//wEAAwAAAAAAAwAAAAEAAwAAAAAAAgAAAAIAAwAAAAAAAwABAAIAAwAAAAAAAwACAAIAAwAAAAAAAQACAAEAAwAAAAAAAQABAAEAAwAAAAAAAQABAAAAAwAAAAAAAwAAAAAAAwAAAAAABQD+/wAAAwAAAAAAAgD+/wEAAwAAAAAAAwD//wIAAwAAAAAABQD+/wIAAwAAAAAAAgD+/wMAAwAAAAAAAQD//wMAAwAAAAAABAD//wQAAwAAAAAAAQAAAAQAAwAAAAAABAABAAQAAwAAAAAAAgACAAQAAwAAAAAABQACAAMAAwAAAAAAAgABAP//AwAAAAAAAwAAAP//AwAAAAAAAwD/////AwAAAAAAAwD+////AwAAAAAABQD9/wEAAwAAAAAABAAAAAMAAwAAAAAAAwABAAMAAwAAAAAABQACAAAABAAAAAAAAQD9////AwAAAAAAAwD9/wAAAwAAAAAAAgABAAUAAwAAAAAAAgACAAUAAwAAAAAABAADAAUAAwAAAAAABQADAAQAAwAAAAAAAwADAAMABAAAAAAAAgADAAIABAAAAAAAAQADAAEABAAAAAAAAQADAAAABAAAAAAAAgACAP//BAAAAAAAAQACAP7/AwAAAAAAAwABAP7/AwAAAAAAAgABAP3/AwAAAAAAAgAAAP3/AwAAAAAABQAAAP7/BAAAAAAAAgD///7/BAAAAAAAAQD+//7/BAAAAAAAAQD9//7/AwAAAAAABQD8////AwAAAAAAAQD8/wAABAAAAAAAAQD9/wIAAwAAAAAABQD9/wMABAAAAAAAAQD9/wQABAAAAAAAAwD+/wQABAAAAAAAAwD+/wUAAwAAAAAAAwD//wUAAwAAAAAAAgAAAAUABAAAAAAAAgAAAAYABAAAAAAAAwABAAYABAAAAAAAAwABAAcABAAAAAAAAwAAAAcAAwAAAAAAAwD8/wIAAwAAAAAAAwD8/wEAAwAAAAAAAQD7/wEAAwAAAAAAAwD7/wAABAAAAAAAAwD7////BAAAAAAAAgD+//3/BAAAAAAAAgD+//z/AwAAAAAABQD///3/BAAAAAAAAgAAAPz/AwAAAAAABAABAPz/AwAAAAAAAgACAP3/AwAAAAAABAADAP7/AwAAAAAAAQADAP//AwAAAAAAAQAEAAEAAwAAAAAAAgAEAAIABAAAAAAAAgAEAAMABAAAAAAAAwAFAAMAAwAAAAAABQAFAAIAAwAAAAAAAgAGAAIAAwAAAAAABQAFAAQAAwAAAAAAAgAEAAQAAwAAAAAAAgD8//7/AwAAAAAABAD8//3/BAAAAAAAAQD9//3/BAAAAAAAAgD9//z/AgAAAAAAAQD8//z/BAAAAAAAAwD7//z/BAAAAAAAAwD7//3/BAAAAAAAAgD6//3/AgAAAAAAAwD6//7/AgAAAAAAAgD7//7/AgAAAAAAAQD6//z/BAAAAAAAAwD6//v/AwAAAAAAAwD7//v/BAAAAAAAAwD8//v/AgAAAAAAAwD9//v/AgAAAAAAAwD5//z/AgAAAAAAAQD5//3/AgAAAAAAAQD5//7/AgAAAAAAAQD5//v/BAAAAAAAAwD5//r/BAAAAAAAAgD6//r/BAAAAAAAAQD7//r/AgAAAAAAAwD6//n/AgAAAAAAAgD5//n/AgAAAAAAAwD4//n/AgAAAAAAAQD4//r/AgAAAAAAAwD4//v/AgAAAAAAAgD7//n/AgAAAAAAAQD8//r/AgAAAAAAAQD3//v/AgAAAAAAAQD3//z/AgAAAAAAAwD4//z/AgAAAAAAAwD5//j/AgAAAAAAAgD6//j/AgAAAAAAAwD6//f/AgAAAAAAAwD5//f/AgAAAAAAAgD4//f/AgAAAAAAAwD4//j/AgAAAAAAAgD3//r/AgAAAAAAAwD3//n/AgAAAAAAAgD7//j/AgAAAAAAAgD5//b/AgAAAAAAAwD2//r/AgAAAAAAAgD2//v/AgAAAAAAAgD6////AgAAAAAAAgD6/wAAAgAAAAAAAwD+//v/AgAAAAAAAgD///v/AgAAAAAAAwD///z/AgAAAAAAAwD9//r/AgAAAAAAAwD8//n/AgAAAAAAAgACAAYAAgAAAAAAAgADAAYAAgAAAAAAAgACAAcAAgAAAAAAAQACAAgAAgAAAAAAAgABAAgAAgAAAAAAAgAAAAgAAgAAAAAAAgD//wgAAgAAAAAAAgD//wcAAgAAAAAAAgD//wYAAgAAAAAAAgD+/wYAAgAAAAAAAgD+/wcAAgAAAAAAAQABAAkAAgAAAAAAAwACAAkAAgAAAAAAAQAAAAkAAgAAAAAAAwD//wkAAgAAAAAAAgAEAAcAAgAAAAAAAwADAAcAAgAAAAAAAgADAAgAAgAAAAAAAQAEAAYAAgAAAAAAAgAEAAUAAgAAAAAAAwABAAoAAgAAAAAAAgAAAAoAAgAAAAAAAwAAAAsAAgAAAAAAAgAFAAUAAgAAAAAAAgAFAAYAAgAAAAAAAwD9/wYAAgAAAAAAAQD9/wUAAgAAAAAAAgA=")
+
+[node name="Base2" parent="Map" instance=ExtResource("3_0uitc")]
+tile_map_data = PackedByteArray("AAD+/wUAAAAAAAAAAQD//wUAAAAAAAAAAQACAP7/AAAAAAAAAQADAP7/AAAAAAAAAQAAAPz/AAAAAAAAAgABAPz/AAAAAAAAAQACAAQAAAAAAAAAAgD8/wIAAAAAAAAAAgA=")
+
+[node name="Sorted" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Shadows" type="Node2D" parent="Sorted"]
+y_sort_enabled = true
+
+[node name="Objects" type="Node2D" parent="Sorted"]
+y_sort_enabled = true
+
+[node name="Tree" parent="Sorted/Objects" instance=ExtResource("4_0qnam")]
+position = Vector2(320, 441)
+
+[node name="Tree2" parent="Sorted/Objects" instance=ExtResource("4_0qnam")]
+position = Vector2(-452, -199)
+
+[node name="Lamp" parent="Sorted/Objects" instance=ExtResource("7_736n7")]
+position = Vector2(0, -664)
+
+[node name="Triggers" type="Node2D" parent="Sorted"]
+y_sort_enabled = true
+
+[node name="LostFirefly2" parent="Sorted/Triggers" instance=ExtResource("6_rjbw8")]
+position = Vector2(4, -137)
+
+[node name="Trigger" parent="Sorted/Triggers" instance=ExtResource("7_cdo7y")]
+position = Vector2(-543, 503)
+collision_mask = 2
+
+[node name="Keeper" parent="Sorted" instance=ExtResource("4_8yim7")]
+y_sort_enabled = true
+position = Vector2(-538, 385)
+
+[node name="Fireflies" type="Node2D" parent="Sorted"]
+y_sort_enabled = true
+position = Vector2(-534, 406)
+script = ExtResource("5_axxc8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qk5t2")
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Footer" type="MarginContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -95.0
+offset_right = 196.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Footer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Dialogue" parent="UI/Footer/VBoxContainer" instance=ExtResource("9_siyd4")]
+layout_mode = 2
+entries = Array[String](["I wonder what else lurks in the shadows? Or what even caused this?", "<dark bellows in the distance>"])
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -20.0
+offset_right = 84.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "Thank you for playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Art by jadecabbage
+Code by Grey"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FadeOut" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0pr2y")
+}
+
+[connection signal="complete" from="." to="Sorted/Keeper" method="make_immune"]
+[connection signal="on_powered" from="Sorted/Objects/Lamp" to="FadeOut" method="play" flags=6 binds= ["fade_out"]]
+[connection signal="on_collected" from="Sorted/Triggers/LostFirefly2" to="Sorted/Fireflies" method="add_firefly"]
+[connection signal="on_collected" from="Sorted/Triggers/LostFirefly2" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6 unbinds=1]
+[connection signal="triggered" from="Sorted/Triggers/Trigger" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]

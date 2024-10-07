@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://6m4g2q80t6kr"]
+[gd_scene load_steps=16 format=4 uid="uid://6m4g2q80t6kr"]
 
 [ext_resource type="PackedScene" uid="uid://cpfakcolyervk" path="res://levels/level.tscn" id="1_w50jk"]
 [ext_resource type="PackedScene" uid="uid://csyuydyv7hs4n" path="res://tiles/layers/toggle_layer.tscn" id="2_pfyyv"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://b7b8nhqnvv3ga" path="res://triggers/axe.tscn" id="7_430iv"]
 [ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="8_4eihk"]
 [ext_resource type="PackedScene" uid="uid://bb8wdyrusk0dj" path="res://objects/tree.tscn" id="9_ukgi0"]
+[ext_resource type="PackedScene" uid="uid://bmybj3bp0v1dr" path="res://triggers/go_to_level.tscn" id="10_w721e"]
+[ext_resource type="PackedScene" uid="uid://dkmdt6k7uoifl" path="res://levels/level_end.tscn" id="11_xfrsd"]
 [ext_resource type="PackedScene" uid="uid://dcmaibssowcvg" path="res://ui/dialogue.tscn" id="12_17cwd"]
 [ext_resource type="PackedScene" uid="uid://cy5mjilkmrkqk" path="res://ui/instruction.tscn" id="13_ri336"]
 
@@ -18,7 +20,7 @@
 firefly_count = 2
 
 [node name="Base" parent="Map" index="0"]
-tile_map_data = PackedByteArray("AAD+/wAAAwAAAAAAAgD+/wEAAwAAAAAAAwD+/wIAAwAAAAAAAwD//wIAAwAAAAAAAQD//wMAAwAAAAAABQAAAAMAAwAAAAAAAQAAAAIAAwAAAAAAAgABAAIAAwAAAAAAAwABAAEAAwAAAAAAAwABAAAAAwAAAAAABAAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////BAAAAAAAAwD//wAABAAAAAAAAwD//wEAAwAAAAAABQAAAAEAAwAAAAAAAgABAAMABAAAAAAAAwACAAIABAAAAAAAAgACAAEAAwAAAAAABAACAAAABAAAAAAAAQABAP//AwAAAAAAAwD8/wIAAwAAAAAAAwD8/wEABAAAAAAAAwD8/wAABAAAAAAAAgD7/wAAAwAAAAAAAgD7/wEAAwAAAAAAAQD7/wIAAwAAAAAABQD///3/AwAAAAAAAQAAAP3/AwAAAAAAAQABAP3/AwAAAAAAAwD///z/AwAAAAAABQAAAPz/AwAAAAAABQABAPz/AwAAAAAABAABAP7/AwAAAAAAAgD///7/AwAAAAAABQD6/wAAAwAAAAAAAQD6/wEAAwAAAAAABQD6/wIABAAAAAAAAgD+/wMABAAAAAAAAwD9/wMAAgAAAAAAAQD///v/BAAAAAAAAQAAAPv/AwAAAAAAAgABAPv/BAAAAAAAAwD5/wAAAwAAAAAABQD5/wEABAAAAAAAAwD4/wAAAwAAAAAABAD5////AwAAAAAAAQD4////AwAAAAAAAQD4/wEAAwAAAAAAAgD6////AwAAAAAAAgD7////AwAAAAAABAD6//7/BAAAAAAAAgD5//7/AwAAAAAABAD3/wAAAwAAAAAABQD3/wEAAwAAAAAABQD2/wAAAwAAAAAABQD2/wEAAwAAAAAAAQD3/wIAAwAAAAAAAQD2/wIAAwAAAAAAAQD1/wEABAAAAAAAAwD1/wAABAAAAAAAAwD2////AwAAAAAAAgD1////AwAAAAAABQD0////AwAAAAAABAD2//7/AwAAAAAAAQD1//7/AwAAAAAAAQD0//7/AwAAAAAABQD0//3/AwAAAAAAAwD1//3/AwAAAAAAAgD0//z/BAAAAAAAAwD1//z/BAAAAAAAAQD0//v/BAAAAAAAAwD0/wAABAAAAAAAAwACAAMAAQAAAAAAAQACAAQAAQAAAAAAAQABAAQAAQAAAAAAAQAAAAQAAQAAAAAAAQD//wQAAQAAAAAAAQD+/wQAAgAAAAAAAQD9/wQAAgAAAAAAAgD8/wQAAgAAAAAAAwADAAMAAQAAAAAAAQADAAIAAQAAAAAAAQADAAEAAQAAAAAAAQADAAAAAQAAAAAAAQADAP//AQAAAAAAAQACAP//AQAAAAAAAQACAP7/AQAAAAAAAQACAP3/AQAAAAAAAQACAPz/AQAAAAAAAQACAPv/AQAAAAAAAQACAPr/AQAAAAAAAQABAPr/AQAAAAAAAQAAAPr/AQAAAAAAAQD///r/AQAAAAAAAQD+//r/AQAAAAAAAQD+//v/AQAAAAAAAQD+//z/AgAAAAAAAwD+//3/AgAAAAAAAQD+//7/AgAAAAAAAgD+////AgAAAAAAAQD9////AgAAAAAAAQD8////AgAAAAAAAQD8//7/AgAAAAAAAwD7//7/AgAAAAAAAwD7//3/AgAAAAAAAwD6//3/AgAAAAAAAwD5//3/AQAAAAAAAQD4//3/AQAAAAAAAQD4//7/AQAAAAAAAQD3////AQAAAAAAAQD3//7/AQAAAAAAAQD2//3/AQAAAAAAAQD3//3/AQAAAAAAAQD2//z/AQAAAAAAAQD2//v/AQAAAAAAAQD1//v/AQAAAAAAAQD1//r/AQAAAAAAAQD0//r/AQAAAAAAAQDz//r/AQAAAAAAAQDz//v/AQAAAAAAAQDz//z/AQAAAAAAAQDz//3/AQAAAAAAAQDz//7/AQAAAAAAAQDz////AQAAAAAAAQDz/wAAAQAAAAAAAQDz/wEAAQAAAAAAAQD0/wEAAQAAAAAAAQD0/wIAAQAAAAAAAQD1/wIAAQAAAAAAAQD1/wMAAQAAAAAAAQD2/wMAAQAAAAAAAQD3/wMAAQAAAAAAAQD4/wMAAQAAAAAAAQD4/wIAAQAAAAAAAQD5/wIAAQAAAAAAAQD5/wMAAQAAAAAAAQD6/wMAAQAAAAAAAQD7/wMAAgAAAAAAAgD8/wMAAgAAAAAAAgD9/wUAAgAAAAAAAwD9//7/AgAAAAAAAQD9//3/AgAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAD+/wAAAwAAAAAAAgD+/wEAAwAAAAAAAwD+/wIAAwAAAAAAAwD//wIAAwAAAAAAAQD//wMAAwAAAAAABQAAAAMAAwAAAAAAAQAAAAIAAwAAAAAAAgABAAIAAwAAAAAAAwABAAEAAwAAAAAAAwABAAAAAwAAAAAABAAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////BAAAAAAAAwD//wAABAAAAAAAAwD//wEAAwAAAAAABQAAAAEAAwAAAAAAAgABAAMABAAAAAAAAwACAAIABAAAAAAAAgACAAEAAwAAAAAABAACAAAABAAAAAAAAQABAP//AwAAAAAAAwD8/wIAAwAAAAAAAwD8/wEABAAAAAAAAwD8/wAABAAAAAAAAgD7/wAAAwAAAAAAAgD7/wEAAwAAAAAAAQD7/wIAAwAAAAAABQD///3/AwAAAAAAAQAAAP3/AwAAAAAAAQABAP3/AwAAAAAAAwD///z/AwAAAAAABQAAAPz/AwAAAAAABQABAPz/AwAAAAAABAABAP7/AwAAAAAAAgD///7/AwAAAAAABQD6/wAAAwAAAAAAAQD6/wEAAwAAAAAABQD6/wIABAAAAAAAAgD+/wMABAAAAAAAAwD9/wMAAgAAAAAAAQD///v/BAAAAAAAAQAAAPv/AwAAAAAAAgABAPv/BAAAAAAAAwD5/wAAAwAAAAAABQD5/wEABAAAAAAAAwD4/wAAAwAAAAAABAD5////AwAAAAAAAQD4////AwAAAAAAAQD4/wEAAwAAAAAAAgD6////AwAAAAAAAgD7////AwAAAAAABAD6//7/BAAAAAAAAgD5//7/AwAAAAAABAD3/wAAAwAAAAAABQD3/wEAAwAAAAAABQD2/wAAAwAAAAAABQD2/wEAAwAAAAAAAQD3/wIAAwAAAAAAAQD2/wIAAwAAAAAAAQD1/wEABAAAAAAAAwD1/wAABAAAAAAAAwD2////AwAAAAAAAgD1////AwAAAAAABQD0////AwAAAAAABAD2//7/AwAAAAAAAQD1//7/AwAAAAAAAQD0//7/AwAAAAAABQD0//3/AwAAAAAAAwD1//3/AwAAAAAAAgD0//z/BAAAAAAAAwD1//z/BAAAAAAAAQD0//v/BAAAAAAAAwD0/wAABAAAAAAAAwACAAMAAQAAAAAAAQACAAQAAQAAAAAAAQABAAQAAQAAAAAAAQAAAAQAAQAAAAAAAQD//wQAAQAAAAAAAQD+/wQAAgAAAAAAAQD9/wQAAgAAAAAAAgD8/wQAAgAAAAAAAwADAAMAAQAAAAAAAQADAAIAAQAAAAAAAQADAAEAAQAAAAAAAQADAAAAAQAAAAAAAQADAP//AQAAAAAAAQACAP//AQAAAAAAAQACAP7/AQAAAAAAAQACAP3/AQAAAAAAAQACAPz/AQAAAAAAAQACAPv/AQAAAAAAAQACAPr/AQAAAAAAAQABAPr/AQAAAAAAAQAAAPr/AQAAAAAAAQD///r/AQAAAAAAAQD+//r/AQAAAAAAAQD+//v/AQAAAAAAAQD+//z/AgAAAAAAAwD+//3/AgAAAAAAAQD+//7/AgAAAAAAAgD+////AgAAAAAAAQD9////AgAAAAAAAQD8////AgAAAAAAAQD8//7/AgAAAAAAAwD7//7/AgAAAAAAAwD7//3/AgAAAAAAAwD6//3/AgAAAAAAAwD5//3/AQAAAAAAAQD4//3/AQAAAAAAAQD4//7/AQAAAAAAAQD3////AQAAAAAAAQD3//7/AQAAAAAAAQD2//3/AQAAAAAAAQD3//3/AQAAAAAAAQD2//z/AQAAAAAAAQD2//v/AQAAAAAAAQD1//v/AQAAAAAAAQD1//r/AQAAAAAAAQD0//r/BAAAAAAAAQDz//r/AQAAAAAAAQDz//v/AQAAAAAAAQDz//z/AQAAAAAAAQDz//3/AQAAAAAAAQDz//7/AQAAAAAAAQDz////AQAAAAAAAQDz/wAAAQAAAAAAAQDz/wEAAQAAAAAAAQD0/wEAAQAAAAAAAQD0/wIAAQAAAAAAAQD1/wIAAQAAAAAAAQD1/wMAAQAAAAAAAQD2/wMAAQAAAAAAAQD3/wMAAQAAAAAAAQD4/wMAAQAAAAAAAQD4/wIAAQAAAAAAAQD5/wIAAQAAAAAAAQD5/wMAAQAAAAAAAQD6/wMAAQAAAAAAAQD7/wMAAgAAAAAAAgD8/wMAAgAAAAAAAgD9/wUAAgAAAAAAAwD9//7/AgAAAAAAAQD9//3/AgAAAAAAAgD0//n/BAAAAAAAAwDz//n/AQAAAAAAAQDz//j/AQAAAAAAAQD0//j/AQAAAAAAAQD1//j/AQAAAAAAAQD1//n/AQAAAAAAAQA=")
 
 [node name="Base2" parent="Map" index="1" instance=ExtResource("2_to2qf")]
 tile_map_data = PackedByteArray("AAD+/wAAAwAAAAAAAQD+/wEAAwAAAAAAAQD+/wIAAwAAAAAAAQD//wIAAwAAAAAAAQD//wMAAwAAAAAAAQAAAAMAAwAAAAAAAQAAAAIAAwAAAAAAAQABAAIAAwAAAAAAAQABAAEAAwAAAAAAAQABAAAAAwAAAAAAAQAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////AwAAAAAAAQD//wAAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQABAAMAAwAAAAAAAQACAAIAAwAAAAAAAQACAAEAAwAAAAAAAQACAAAAAwAAAAAAAQABAP//AwAAAAAAAQD8/wIAAwAAAAAAAQD8/wEAAwAAAAAAAQD8/wAAAwAAAAAAAQD7/wAAAwAAAAAAAQD7/wEAAwAAAAAAAQD7/wIAAwAAAAAAAQD///3/AwAAAAAAAQAAAP3/AwAAAAAAAQABAP3/AwAAAAAAAQD///z/AwAAAAAAAQAAAPz/AwAAAAAAAQABAPz/AwAAAAAAAQABAP7/AAAAAAAAAgD///7/AAAAAAAAAgD6/wAAAwAAAAAAAQD6/wEAAwAAAAAAAQD6/wIAAwAAAAAAAQD+/wMAAwAAAAAAAQD9/wMAAgAAAAAAAQA=")
@@ -48,14 +50,15 @@ position = Vector2(-1407, -463)
 [node name="Tree" parent="Sorted/Objects" index="3" instance=ExtResource("9_ukgi0")]
 position = Vector2(-574, -526)
 
-[node name="LogAcceptor" parent="Sorted/Triggers" index="0" instance=ExtResource("5_n0x2r")]
+[node name="GoToLevel" parent="Sorted/Triggers" index="0" instance=ExtResource("10_w721e")]
+position = Vector2(-725, -1054)
+level = ExtResource("11_xfrsd")
+
+[node name="LogAcceptor" parent="Sorted/Triggers" index="1" instance=ExtResource("5_n0x2r")]
 collision_mask = 128
 
-[node name="Axe" parent="Sorted/Triggers" index="1" instance=ExtResource("7_430iv")]
+[node name="Axe" parent="Sorted/Triggers" index="2" instance=ExtResource("7_430iv")]
 position = Vector2(772, -131)
-
-[node name="EndGame" parent="Sorted/Triggers" index="2" instance=ExtResource("5_n0x2r")]
-position = Vector2(-765, -1029)
 
 [node name="Trigger" parent="Sorted/Triggers" index="3" instance=ExtResource("5_n0x2r")]
 position = Vector2(-500, -391)
@@ -91,7 +94,7 @@ theme_override_constants/separation = 12
 
 [node name="Dialogue" parent="UI/Footer/VBoxContainer" index="0" instance=ExtResource("12_17cwd")]
 layout_mode = 2
-entries = Array[String](["That axe is obstructed maybe I can make a bridge of some kind?", "Maybe I can use an axe to clear the way.", "I wonder what else lurks in the shadows? Or what even caused this?"])
+entries = Array[String](["That axe is obstructed maybe I can make a bridge of some kind?", "Maybe I can use an axe to clear the way."])
 
 [node name="Center" type="MarginContainer" parent="UI" index="1"]
 anchors_preset = 8
@@ -109,17 +112,18 @@ theme_override_constants/margin_top = 256
 
 [node name="Instruction" parent="UI/Center" index="0" instance=ExtResource("13_ri336")]
 layout_mode = 2
-entries = Array[String](["You push logs by walking into them.", "Press space with the axe to fell the tree."])
+entries = Array[String](["You push logs by walking into them.", "Press space while near a tree to use the axe."])
 
 [connection signal="on_powered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="enable"]
 [connection signal="on_unpowered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="disable"]
 [connection signal="on_powered" from="Sorted/Objects/Lamp" to="." method="on_complete"]
 [connection signal="felled" from="Sorted/Objects/Tree" to="Sorted/Shadows/Tendril" method="queue_free"]
+[connection signal="on_triggered" from="Sorted/Triggers/GoToLevel" to="." method="_on_go_next_level"]
 [connection signal="triggered" from="Sorted/Triggers/LogAcceptor" to="Map/ToggleLayer2" method="enable"]
 [connection signal="triggered" from="Sorted/Triggers/LogAcceptor" to="Sorted/Objects/Log" method="queue_free"]
 [connection signal="triggered" from="Sorted/Triggers/Axe" to="Sorted/Triggers/Axe" method="queue_free"]
+[connection signal="triggered" from="Sorted/Triggers/Axe" to="UI/Center/Instruction" method="next_entry"]
 [connection signal="triggered" from="Sorted/Triggers/Axe" to="Sorted/Keeper" method="add_item" binds= ["axe"]]
-[connection signal="triggered" from="Sorted/Triggers/EndGame" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
 [connection signal="triggered" from="Sorted/Triggers/Trigger" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
 [connection signal="triggered" from="Sorted/Triggers/Trigger2" to="UI/Footer/VBoxContainer/Dialogue" method="next_entry" flags=6]
 [connection signal="triggered" from="Sorted/Triggers/Trigger2" to="UI/Center/Instruction" method="next_entry" flags=6]
