@@ -1,0 +1,13 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://cv7ceibkpk1j7"]
+
+[sub_resource type="Gradient" id="Gradient_b1x2p"]
+offsets = PackedFloat32Array(0, 0.63, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.251953, 0.251953, 0.251953, 1, 0, 0, 0, 1)
+
+[resource]
+gradient = SubResource("Gradient_b1x2p")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)

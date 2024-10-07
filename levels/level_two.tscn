@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=4 uid="uid://duxygaimn51ch"]
+
+[ext_resource type="PackedScene" uid="uid://cpfakcolyervk" path="res://levels/level.tscn" id="1_lrjlm"]
+[ext_resource type="PackedScene" uid="uid://csyuydyv7hs4n" path="res://tiles/layers/toggle_layer.tscn" id="2_mrvgq"]
+[ext_resource type="PackedScene" uid="uid://dmjo0ha3vaboe" path="res://tendril.tscn" id="3_dwoo7"]
+[ext_resource type="PackedScene" uid="uid://cxv2h5xqfw4qd" path="res://triggers/lost_firefly.tscn" id="3_f5vnj"]
+[ext_resource type="PackedScene" uid="uid://8gohnbqmbf2i" path="res://objects/conduit.tscn" id="3_vgwfi"]
+[ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="4_mbo3d"]
+[ext_resource type="PackedScene" uid="uid://bmybj3bp0v1dr" path="res://triggers/go_to_level.tscn" id="7_wucyh"]
+[ext_resource type="PackedScene" uid="uid://6m4g2q80t6kr" path="res://levels/level_three.tscn" id="8_l68u1"]
+
+[node name="LevelTwo" instance=ExtResource("1_lrjlm")]
+firefly_count = 1
+
+[node name="Base" parent="Map" index="0"]
+tile_map_data = PackedByteArray("AAD//wAAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQAAAAAAAwAAAAAAAQD+/wEAAwAAAAAAAQD+/wAAAwAAAAAAAQD+////AwAAAAAAAQD/////AwAAAAAAAQAAAP//AwAAAAAAAQD9////AwAAAAAAAQD9/wAAAwAAAAAAAQD8////AwAAAAAAAQD8//7/AwAAAAAAAQD7//7/AwAAAAAAAQD7////AwAAAAAAAQD8/wAAAwAAAAAAAQD7/wAAAwAAAAAAAQD7//3/AwAAAAAAAQD8//3/AwAAAAAAAQD7/wEAAwAAAAAAAQD6/wEAAgAAAAAAAQD6//3/AgAAAAAAAQD5/wEAAwAAAAAAAQD5/wAAAwAAAAAAAQD5////AwAAAAAAAQD5//7/AwAAAAAAAQD5//3/AwAAAAAAAQD4/wEAAwAAAAAAAQD3/wEAAwAAAAAAAQD3/wAAAwAAAAAAAQD4/wAAAwAAAAAAAQD4////AwAAAAAAAQD3////AwAAAAAAAQD4//7/AwAAAAAAAQD4//3/AwAAAAAAAQD3//3/AwAAAAAAAQD3//z/AwAAAAAAAQD2//z/AwAAAAAAAQD2//3/AwAAAAAAAQD1//z/AwAAAAAAAQD2/wAAAwAAAAAAAQD2/wEAAwAAAAAAAQD4/wIAAwAAAAAAAQD3/wIAAwAAAAAAAQD2/wIAAwAAAAAAAQD1//v/AgAAAAAAAQD3//v/AgAAAAAAAQD3//r/AgAAAAAAAQD1//r/AgAAAAAAAQD1//n/AwAAAAAAAQD2//n/AwAAAAAAAQD3//n/AwAAAAAAAQD1//j/AwAAAAAAAQD2//j/AwAAAAAAAQD3//j/AwAAAAAAAQD4//z/AwAAAAAAAQD2//f/AwAAAAAAAQD3//f/AwAAAAAAAQD1//f/AwAAAAAAAQD1//b/AwAAAAAAAQD2//b/AwAAAAAAAQD3//b/AwAAAAAAAQD1//X/AwAAAAAAAQD2//X/AwAAAAAAAQD3//X/AwAAAAAAAQD5//z/AwAAAAAAAQD2//T/AwAAAAAAAQA=")
+
+[node name="ToggleLayer" parent="Map" index="1" instance=ExtResource("2_mrvgq")]
+tile_map_data = PackedByteArray("AAD6/wAAAAAAAAAAAQD6////AAAAAAAAAQD6//7/AAAAAAAAAQD2//v/AAAAAAAAAQA=")
+
+[node name="ToggleLayer2" parent="Map" index="2" instance=ExtResource("2_mrvgq")]
+tile_map_data = PackedByteArray("AAD2//r/AAAAAAAAAQA=")
+
+[node name="Tendril" parent="Sorted/Shadows" index="0" instance=ExtResource("3_dwoo7")]
+position = Vector2(259, -1291)
+
+[node name="Conduit" parent="Sorted/Objects" index="0" instance=ExtResource("3_vgwfi")]
+position = Vector2(-121, -438)
+
+[node name="Conduit2" parent="Sorted/Objects" index="1" instance=ExtResource("3_vgwfi")]
+position = Vector2(-763, -893)
+
+[node name="Lamp" parent="Sorted/Objects" index="2" instance=ExtResource("4_mbo3d")]
+position = Vector2(125, -1090)
+
+[node name="LostFirefly" parent="Sorted/Triggers" index="0" instance=ExtResource("3_f5vnj")]
+position = Vector2(-1145, -454)
+
+[node name="GoToLevel" parent="Sorted/Triggers" index="1" instance=ExtResource("7_wucyh")]
+position = Vector2(392, -1354)
+level = ExtResource("8_l68u1")
+
+[connection signal="on_powered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="enable"]
+[connection signal="on_unpowered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="disable"]
+[connection signal="on_powered" from="Sorted/Objects/Conduit2" to="Map/ToggleLayer2" method="enable"]
+[connection signal="on_unpowered" from="Sorted/Objects/Conduit2" to="Map/ToggleLayer2" method="disable"]
+[connection signal="on_powered" from="Sorted/Objects/Lamp" to="." method="on_complete"]
+[connection signal="on_collected" from="Sorted/Triggers/LostFirefly" to="Sorted/Fireflies" method="add_firefly"]
+[connection signal="on_triggered" from="Sorted/Triggers/GoToLevel" to="." method="_on_go_next_level"]

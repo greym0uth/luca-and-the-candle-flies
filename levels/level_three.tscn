@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=4 uid="uid://6m4g2q80t6kr"]
+
+[ext_resource type="PackedScene" uid="uid://cpfakcolyervk" path="res://levels/level.tscn" id="1_w50jk"]
+[ext_resource type="PackedScene" uid="uid://csyuydyv7hs4n" path="res://tiles/layers/toggle_layer.tscn" id="2_pfyyv"]
+[ext_resource type="PackedScene" uid="uid://covog2qyrl0i1" path="res://tiles/layers/base.tscn" id="2_to2qf"]
+[ext_resource type="PackedScene" uid="uid://8gohnbqmbf2i" path="res://objects/conduit.tscn" id="3_mlh4s"]
+[ext_resource type="PackedScene" uid="uid://c1p4scosqoe4r" path="res://objects/log.tscn" id="4_ofg5d"]
+[ext_resource type="PackedScene" uid="uid://dskiuob25htxu" path="res://tendril_flipped.tscn" id="4_rlwuh"]
+[ext_resource type="PackedScene" uid="uid://dmjo0ha3vaboe" path="res://tendril.tscn" id="5_bfcef"]
+[ext_resource type="PackedScene" uid="uid://47am5i3du6t3" path="res://triggers/trigger.tscn" id="5_n0x2r"]
+[ext_resource type="PackedScene" uid="uid://b7b8nhqnvv3ga" path="res://triggers/axe.tscn" id="7_430iv"]
+[ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="8_4eihk"]
+[ext_resource type="PackedScene" uid="uid://bb8wdyrusk0dj" path="res://objects/tree.tscn" id="9_ukgi0"]
+
+[node name="LevelThree" instance=ExtResource("1_w50jk")]
+
+[node name="CanvasModulate" parent="." index="0"]
+visible = false
+
+[node name="Base" parent="Map" index="0"]
+tile_map_data = PackedByteArray("AAD+/wAAAwAAAAAAAQD+/wEAAwAAAAAAAQD+/wIAAwAAAAAAAQD//wIAAwAAAAAAAQD//wMAAwAAAAAAAQAAAAMAAwAAAAAAAQAAAAIAAwAAAAAAAQABAAIAAwAAAAAAAQABAAEAAwAAAAAAAQABAAAAAwAAAAAAAQAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////AwAAAAAAAQD//wAAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQABAAMAAwAAAAAAAQACAAIAAwAAAAAAAQACAAEAAwAAAAAAAQACAAAAAwAAAAAAAQABAP//AwAAAAAAAQD8/wIAAwAAAAAAAQD8/wEAAwAAAAAAAQD8/wAAAwAAAAAAAQD7/wAAAwAAAAAAAQD7/wEAAwAAAAAAAQD7/wIAAwAAAAAAAQD///3/AwAAAAAAAQAAAP3/AwAAAAAAAQABAP3/AwAAAAAAAQD///z/AwAAAAAAAQAAAPz/AwAAAAAAAQABAPz/AwAAAAAAAQABAP7/AwAAAAAAAQD///7/AwAAAAAAAQD6/wAAAwAAAAAAAQD6/wEAAwAAAAAAAQD6/wIAAwAAAAAAAQD+/wMAAwAAAAAAAQD9/wMAAgAAAAAAAQD///v/AwAAAAAAAQAAAPv/AwAAAAAAAQABAPv/AwAAAAAAAQD5/wAAAwAAAAAAAQD5/wEAAwAAAAAAAQD4/wAAAwAAAAAAAQD5////AwAAAAAAAQD4////AwAAAAAAAQD4/wEAAwAAAAAAAQD6////AwAAAAAAAQD7////AwAAAAAAAQD6//7/AwAAAAAAAQD5//7/AwAAAAAAAQD3/wAAAwAAAAAAAQD3/wEAAwAAAAAAAQD2/wAAAwAAAAAAAQD2/wEAAwAAAAAAAQD3/wIAAwAAAAAAAQD2/wIAAwAAAAAAAQD1/wEAAwAAAAAAAQD1/wAAAwAAAAAAAQD2////AwAAAAAAAQD1////AwAAAAAAAQD0////AwAAAAAAAQD2//7/AwAAAAAAAQD1//7/AwAAAAAAAQD0//7/AwAAAAAAAQD0//3/AwAAAAAAAQD1//3/AwAAAAAAAQD0//z/AwAAAAAAAQD1//z/AwAAAAAAAQD0//v/AwAAAAAAAQD0/wAAAwAAAAAAAQA=")
+
+[node name="Base2" parent="Map" index="1" instance=ExtResource("2_to2qf")]
+tile_map_data = PackedByteArray("AAD+/wAAAwAAAAAAAQD+/wEAAwAAAAAAAQD+/wIAAwAAAAAAAQD//wIAAwAAAAAAAQD//wMAAwAAAAAAAQAAAAMAAwAAAAAAAQAAAAIAAwAAAAAAAQABAAIAAwAAAAAAAQABAAEAAwAAAAAAAQABAAAAAwAAAAAAAQAAAAAAAwAAAAAAAQAAAP//AwAAAAAAAQD/////AwAAAAAAAQD//wAAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQABAAMAAwAAAAAAAQACAAIAAwAAAAAAAQACAAEAAwAAAAAAAQACAAAAAwAAAAAAAQABAP//AwAAAAAAAQD8/wIAAwAAAAAAAQD8/wEAAwAAAAAAAQD8/wAAAwAAAAAAAQD7/wAAAwAAAAAAAQD7/wEAAwAAAAAAAQD7/wIAAwAAAAAAAQD///3/AwAAAAAAAQAAAP3/AwAAAAAAAQABAP3/AwAAAAAAAQD///z/AwAAAAAAAQAAAPz/AwAAAAAAAQABAPz/AwAAAAAAAQABAP7/AAAAAAAAAgD///7/AAAAAAAAAgD6/wAAAwAAAAAAAQD6/wEAAwAAAAAAAQD6/wIAAwAAAAAAAQD+/wMAAwAAAAAAAQD9/wMAAgAAAAAAAQA=")
+
+[node name="ToggleLayer" parent="Map" index="2" instance=ExtResource("2_pfyyv")]
+tile_map_data = PackedByteArray("AAD9/wEAAAAAAAAAAQD9/wIAAAAAAAAAAQD9/wAAAAAAAAAAAQA=")
+
+[node name="ToggleLayer2" parent="Map" index="3" instance=ExtResource("2_pfyyv")]
+tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAgA=")
+
+[node name="Tendril" parent="Sorted/Shadows" index="0" instance=ExtResource("4_rlwuh")]
+position = Vector2(-883, -461)
+
+[node name="Tendril2" parent="Sorted/Shadows" index="1" instance=ExtResource("5_bfcef")]
+position = Vector2(-1026, -775)
+
+[node name="Log" parent="Sorted/Objects" index="0" instance=ExtResource("4_ofg5d")]
+position = Vector2(-633, -186)
+collision_layer = 128
+
+[node name="Conduit" parent="Sorted/Objects" index="1" instance=ExtResource("3_mlh4s")]
+position = Vector2(510, -244)
+
+[node name="Lamp" parent="Sorted/Objects" index="2" instance=ExtResource("8_4eihk")]
+position = Vector2(-1407, -463)
+
+[node name="Tree" parent="Sorted/Objects" index="3" instance=ExtResource("9_ukgi0")]
+position = Vector2(-574, -526)
+
+[node name="LogAcceptor" parent="Sorted/Triggers" index="0" instance=ExtResource("5_n0x2r")]
+collision_mask = 128
+
+[node name="Axe" parent="Sorted/Triggers" index="1" instance=ExtResource("7_430iv")]
+position = Vector2(244, 124)
+
+[connection signal="on_powered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="enable"]
+[connection signal="on_unpowered" from="Sorted/Objects/Conduit" to="Map/ToggleLayer" method="disable"]
+[connection signal="on_powered" from="Sorted/Objects/Lamp" to="." method="on_complete"]
+[connection signal="felled" from="Sorted/Objects/Tree" to="Sorted/Shadows/Tendril" method="queue_free"]
+[connection signal="triggered" from="Sorted/Triggers/LogAcceptor" to="Map/ToggleLayer2" method="enable"]
+[connection signal="triggered" from="Sorted/Triggers/LogAcceptor" to="Sorted/Objects/Log" method="queue_free"]
+[connection signal="triggered" from="Sorted/Triggers/Axe" to="Sorted/Triggers/Axe" method="queue_free"]
+[connection signal="triggered" from="Sorted/Triggers/Axe" to="Sorted/Keeper" method="add_item" binds= ["axe"]]

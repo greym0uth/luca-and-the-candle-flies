@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://tiles/water/activated_bridge.gd" id="1_14vqx"]
 [ext_resource type="Texture2D" uid="uid://c6fggra2whkuo" path="res://tiles/water/water1.png" id="2_30edh"]
-[ext_resource type="Texture2D" uid="uid://dq7i8y7nbwnrh" path="res://tiles/grass/Grass5.png" id="3_kfgdt"]
+[ext_resource type="Texture2D" uid="uid://bpkiumcakn1kj" path="res://tiles/water/WaterStone.png" id="3_py2k0"]
 [ext_resource type="PackedScene" uid="uid://en83mqyuh6g" path="res://tiles/tile_collision_polygon.tscn" id="3_tpn5c"]
 
 [node name="ActivatedBridge" type="StaticBody2D"]
@@ -14,9 +14,15 @@ script = ExtResource("1_14vqx")
 texture = ExtResource("2_30edh")
 offset = Vector2(0, 16)
 
-[node name="EnabledSprite" type="Sprite2D" parent="."]
+[node name="EnabledSprite" type="Node2D" parent="."]
 visible = false
-texture = ExtResource("3_kfgdt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnabledSprite"]
+texture = ExtResource("2_30edh")
+offset = Vector2(0, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnabledSprite"]
+texture = ExtResource("3_py2k0")
 offset = Vector2(0, 16)
 
 [node name="TileCollisionPolygon" parent="." instance=ExtResource("3_tpn5c")]

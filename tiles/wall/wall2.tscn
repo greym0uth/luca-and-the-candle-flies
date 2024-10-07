@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cax7cokuifmie"]
+
+[ext_resource type="Texture2D" uid="uid://ddyohddgqbnrx" path="res://tiles/wall/WallBlock2.png" id="1_tf2ll"]
+[ext_resource type="PackedScene" uid="uid://en83mqyuh6g" path="res://tiles/tile_collision_polygon.tscn" id="2_y654g"]
+
+[node name="Wall" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_tf2ll")
+offset = Vector2(0, -128)
+
+[node name="TileCollisionPolygon" parent="." instance=ExtResource("2_y654g")]

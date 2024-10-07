@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcsymy5goy6sr"]
+[gd_scene load_steps=5 format=3 uid="uid://bcsymy5goy6sr"]
 
 [ext_resource type="Script" path="res://levels.gd" id="1_2acse"]
-[ext_resource type="PackedScene" uid="uid://15ag0i6vwh0q" path="res://levels/level_one.tscn" id="2_h28lg"]
+[ext_resource type="Script" path="res://main.gd" id="1_rgftd"]
+[ext_resource type="PackedScene" uid="uid://bjf35cav1u407" path="res://levels/level_zero.tscn" id="2_g1djj"]
+[ext_resource type="AudioStream" uid="uid://u5kqchj2bi1x" path="res://audio/bg/bg.ogg" id="3_lmklw"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_rgftd")
 
 [node name="Levels" type="Node2D" parent="."]
 script = ExtResource("1_2acse")
-starting_level = ExtResource("2_h28lg")
+starting_level = ExtResource("2_g1djj")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lmklw")
+volume_db = -6.0
+parameters/looping = true

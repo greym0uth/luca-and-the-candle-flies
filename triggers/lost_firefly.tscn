@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxv2h5xqfw4qd"]
+
+[ext_resource type="Texture2D" uid="uid://jusrsprweoww" path="res://firefly.png" id="1_4c081"]
+[ext_resource type="Script" path="res://triggers/lost_firefly.gd" id="1_vy7sh"]
+[ext_resource type="Texture2D" uid="uid://cc6m5q5ktfk8k" path="res://light.png" id="2_wwfg1"]
+
+[node name="LostFirefly" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_vy7sh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(128, 0, 0, 64, -128, 0, 0, -64)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4c081")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.314765, 0.280232, 1, 1)
+energy = 0.6
+texture = ExtResource("2_wwfg1")
+texture_scale = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

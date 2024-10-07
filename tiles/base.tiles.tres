@@ -1,12 +1,19 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://cql4xabtpfi8f"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://cql4xabtpfi8f"]
 
+[ext_resource type="PackedScene" uid="uid://daomjptxgtif5" path="res://tiles/wall/wall1.tscn" id="1_ytcu4"]
 [ext_resource type="PackedScene" uid="uid://l17gbtnuo2tk" path="res://tiles/water/water1.tscn" id="2_3tujd"]
+[ext_resource type="PackedScene" uid="uid://cax7cokuifmie" path="res://tiles/wall/wall2.tscn" id="2_oh8tu"]
 [ext_resource type="PackedScene" uid="uid://dd4oncck5ryau" path="res://tiles/water/water2.tscn" id="3_lw06a"]
 [ext_resource type="PackedScene" uid="uid://bafxi3v7k8i80" path="res://tiles/grass/grass1.tscn" id="4_48fcp"]
 [ext_resource type="PackedScene" uid="uid://b5ihqrvglo50g" path="res://tiles/grass/grass2.tscn" id="5_1k6yg"]
 [ext_resource type="PackedScene" uid="uid://rebq7sg4rege" path="res://tiles/grass/grass3.tscn" id="6_8v1ww"]
 [ext_resource type="PackedScene" uid="uid://cgvgd5suxcnem" path="res://tiles/grass/grass4.tscn" id="7_luasw"]
 [ext_resource type="PackedScene" uid="uid://cyc2v2nw6t8ii" path="res://tiles/grass/grass5.tscn" id="8_83iph"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_yg0jv"]
+resource_name = "Wall"
+scenes/1/scene = ExtResource("1_ytcu4")
+scenes/2/scene = ExtResource("2_oh8tu")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_v1iha"]
 resource_name = "Water"
@@ -33,3 +40,4 @@ terrain_set_0/terrain_1/name = "Stone"
 terrain_set_0/terrain_1/color = Color(0.64761, 0.670962, 0.710938, 1)
 sources/3 = SubResource("TileSetScenesCollectionSource_2jg81")
 sources/2 = SubResource("TileSetScenesCollectionSource_v1iha")
+sources/0 = SubResource("TileSetScenesCollectionSource_yg0jv")

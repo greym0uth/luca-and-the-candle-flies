@@ -13,7 +13,7 @@ var current_rotation = 0
 
 var target_position = null
 
-func _process(delta):
+func _process(_delta):
     if target_position != null && Input.is_action_just_pressed("firefly_collect"):
         if get_global_mouse_position().distance_to(global_position) < collect_stay_radius:
             target_position = null
@@ -27,7 +27,7 @@ func _physics_process(delta):
         target_angle = global_position.angle_to_point(mouse_position)
 
     current_time += delta
-    var offset_angle = sin(seeded_offset + current_time * 1) * (PI / 4)
+    var offset_angle = sin(seeded_offset + current_time * 8) * (PI / 4)
 
     current_rotation = lerp_angle(current_rotation, target_angle + offset_angle, rotation_speed * PI * delta)
 

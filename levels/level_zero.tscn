@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=4 uid="uid://bjf35cav1u407"]
+
+[ext_resource type="PackedScene" uid="uid://cpfakcolyervk" path="res://levels/level.tscn" id="1_m8rkv"]
+[ext_resource type="PackedScene" uid="uid://0xlivsywdqkr" path="res://objects/lamp.tscn" id="2_63xrd"]
+[ext_resource type="PackedScene" uid="uid://dmjo0ha3vaboe" path="res://tendril.tscn" id="3_3x2w4"]
+[ext_resource type="PackedScene" uid="uid://bmybj3bp0v1dr" path="res://triggers/go_to_level.tscn" id="3_karnv"]
+[ext_resource type="PackedScene" uid="uid://15ag0i6vwh0q" path="res://levels/level_one.tscn" id="4_kavmp"]
+[ext_resource type="PackedScene" uid="uid://cxv2h5xqfw4qd" path="res://triggers/lost_firefly.tscn" id="6_wwto0"]
+
+[node name="LevelZero" instance=ExtResource("1_m8rkv")]
+firefly_count = 0
+
+[node name="Base" parent="Map" index="0"]
+tile_map_data = PackedByteArray("AAD//wAAAwAAAAAAAQD//wEAAwAAAAAAAQAAAAEAAwAAAAAAAQAAAAIAAwAAAAAAAQABAAIAAwAAAAAAAQABAAEAAwAAAAAAAQABAAAAAwAAAAAAAQAAAAAAAwAAAAAAAQD//wIAAwAAAAAAAQD+/wEAAwAAAAAAAQD+/wAAAwAAAAAAAQD+////AwAAAAAAAQD/////AwAAAAAAAQAAAP//AwAAAAAAAQD9/wAAAwAAAAAAAQD9////AwAAAAAAAQD9//7/AwAAAAAAAQD+//7/AwAAAAAAAQD+//3/AwAAAAAAAQD///7/AwAAAAAAAQD8////AwAAAAAAAQD8//7/AwAAAAAAAQD8//3/AwAAAAAAAQD9//3/AwAAAAAAAQD7//7/AwAAAAAAAQD7//3/AwAAAAAAAQD7//z/AwAAAAAAAQD6//3/AwAAAAAAAQD6//z/AwAAAAAAAQD6//v/AwAAAAAAAQD7//v/AwAAAAAAAQD5//v/AwAAAAAAAQD5//r/AwAAAAAAAQD4//r/AwAAAAAAAQD4//n/AwAAAAAAAQD+/wIAAwAAAAAAAQD9/wEAAwAAAAAAAQD8/wAAAwAAAAAAAQD3//j/AwAAAAAAAQD4//j/AwAAAAAAAQD3//f/AwAAAAAAAQD4//f/AwAAAAAAAQD3//b/AwAAAAAAAQD2//b/AwAAAAAAAQD3//X/AwAAAAAAAQD2//X/AwAAAAAAAQD1//X/AwAAAAAAAQD0//X/AwAAAAAAAQD0//T/AwAAAAAAAQD1//T/AwAAAAAAAQDz//X/AwAAAAAAAQDz//T/AwAAAAAAAQDz//P/AwAAAAAAAQDy//X/AwAAAAAAAQDy//T/AwAAAAAAAQDy//P/AwAAAAAAAQDx//T/AwAAAAAAAQDx//P/AwAAAAAAAQDx//L/AwAAAAAAAQDy//L/AwAAAAAAAQDx//H/AwAAAAAAAQDw//P/AwAAAAAAAQDw//L/AwAAAAAAAQDw//H/AwAAAAAAAQDy//H/AwAAAAAAAQD6//r/AwAAAAAAAQD5//n/AwAAAAAAAQD8//z/AwAAAAAAAQD5//j/AwAAAAAAAQD4//b/AwAAAAAAAQD2//T/AwAAAAAAAQD4//X/AwAAAAAAAQD5//f/AwAAAAAAAQDw/+//AwAAAAAAAQDx/+//AwAAAAAAAQDx//D/AwAAAAAAAQDw//D/AwAAAAAAAQDy//D/AwAAAAAAAQDy/+//AwAAAAAAAQDw/+7/AwAAAAAAAQDx/+7/AwAAAAAAAQDy/+7/AwAAAAAAAQDx/+3/AwAAAAAAAQDw/+3/AwAAAAAAAQDy/+3/AwAAAAAAAQDv/+//AwAAAAAAAQDv/+7/AwAAAAAAAQDv//D/AwAAAAAAAQDw/+z/AwAAAAAAAQDx/+z/AwAAAAAAAQDy/+z/AwAAAAAAAQDx/+v/AwAAAAAAAQA=")
+
+[node name="Tendril" parent="Sorted/Shadows" index="0" instance=ExtResource("3_3x2w4")]
+position = Vector2(756, -2188)
+
+[node name="Lamp2" parent="Sorted/Objects" index="0" instance=ExtResource("2_63xrd")]
+position = Vector2(134, -2116)
+
+[node name="Lamp" parent="Sorted/Objects" index="1" instance=ExtResource("2_63xrd")]
+position = Vector2(142, 61)
+start_powered = true
+
+[node name="Lamp3" parent="Sorted/Objects" index="2" instance=ExtResource("2_63xrd")]
+position = Vector2(-272, -538)
+start_powered = true
+
+[node name="GoToLevel" parent="Sorted/Triggers" index="0" instance=ExtResource("3_karnv")]
+position = Vector2(908, -2247)
+level = ExtResource("4_kavmp")
+
+[node name="LostFirefly" parent="Sorted/Triggers" index="1" instance=ExtResource("6_wwto0")]
+position = Vector2(135, -836)
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -95.0
+offset_right = 196.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Reminder" type="Label" parent="UI/MarginContainer/VBoxContainer" index="0"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Space to continue"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Dialogue" type="PanelContainer" parent="UI/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/Dialogue" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/Dialogue/MarginContainer" index="0"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+text = "What happened to my glade? Its shrouded in darkness!"
+autowrap_mode = 2
+
+[connection signal="on_powered" from="Sorted/Objects/Lamp2" to="." method="on_complete"]
+[connection signal="on_triggered" from="Sorted/Triggers/GoToLevel" to="." method="_on_go_next_level"]
+[connection signal="on_collected" from="Sorted/Triggers/LostFirefly" to="Sorted/Fireflies" method="add_firefly"]

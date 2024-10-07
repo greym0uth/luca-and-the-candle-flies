@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="luca-and-the-candle-flies"
-run/main_scene="res://levels/test.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 keeper=""
 firefly=""
+lamp=""
 
 [input]
 
@@ -56,6 +57,11 @@ firefly_collect={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(139, 19),"global_position":Vector2(158, 110),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+keeper_use={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -65,6 +71,8 @@ firefly_collect={
 2d_physics/layer_4="Objects"
 2d_physics/layer_5="Obstacles"
 2d_physics/layer_6="Shadows"
+2d_physics/layer_7="Lamps"
+2d_physics/layer_8="Logs"
 
 [physics]
 
@@ -72,5 +80,5 @@ firefly_collect={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.139525, 0.143927, 0.164062, 1)
+environment/defaults/default_clear_color=Color(0.042717, 0.0436795, 0.0546875, 1)
 2d/defaults/default_clear_color=Color(0.139525, 0.143927, 0.164062, 1)

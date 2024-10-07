@@ -4,5 +4,6 @@
 [ext_resource type="Script" path="res://tiles/layers/toggle_layer.gd" id="2_mgkfb"]
 
 [node name="ToggleLayer" type="TileMapLayer"]
+y_sort_enabled = true
 tile_set = ExtResource("1_kwm6v")
 script = ExtResource("2_mgkfb")

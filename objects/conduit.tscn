@@ -1,30 +1,123 @@
-[gd_scene load_steps=5 format=3 uid="uid://8gohnbqmbf2i"]
+[gd_scene load_steps=10 format=3 uid="uid://8gohnbqmbf2i"]
 
 [ext_resource type="Script" path="res://objects/powerable.gd" id="1_optic"]
-[ext_resource type="Texture2D" uid="uid://do16n70gaalu3" path="res://rock.png" id="2_0xiht"]
+[ext_resource type="Texture2D" uid="uid://3kf8038vebx5" path="res://objects/ConduitOff.png" id="2_oxobq"]
+[ext_resource type="Texture2D" uid="uid://cotrosgie4fh6" path="res://objects/ConduitOn.png" id="3_j0lwv"]
 [ext_resource type="PackedScene" uid="uid://b2ewofteagvyu" path="res://objects/interaction.tscn" id="3_qyoms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_035n1"]
 size = Vector2(36, 67)
+
+[sub_resource type="Animation" id="Animation_o8lqk"]
+resource_name = "power"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unpowered:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Powered:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_03agt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unpowered:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Powered:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_egl4y"]
+resource_name = "unpower"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unpowered:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Powered:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4su81"]
+_data = {
+"RESET": SubResource("Animation_03agt"),
+"power": SubResource("Animation_o8lqk"),
+"unpower": SubResource("Animation_egl4y")
+}
 
 [node name="Conduit" type="StaticBody2D"]
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_optic")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0xiht")
+[node name="Unpowered" type="Sprite2D" parent="."]
+texture = ExtResource("2_oxobq")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0, -29)
-texture = ExtResource("2_0xiht")
+[node name="Powered" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_j0lwv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15.5)
 shape = SubResource("RectangleShape2D_035n1")
 
 [node name="Interaction" parent="." instance=ExtResource("3_qyoms")]
-collision_layer = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4su81")
+}
 
 [connection signal="on_activated" from="Interaction" to="." method="power"]
 [connection signal="on_deactivated" from="Interaction" to="." method="unpower"]

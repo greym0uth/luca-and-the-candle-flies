@@ -4,6 +4,9 @@ func _process(_delta):
     if Input.is_action_just_pressed("firefly_stay"):
         leave_firefly()
 
+func add_firefly(firefly: Node2D):
+    add_child(firefly)
+
 func leave_firefly():
     var mouse_position = get_global_mouse_position()
     for child in get_children():
